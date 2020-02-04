@@ -26,6 +26,8 @@ template literal: ` ` 이거 안에 ${ }를 쓰면 변수를 출력할 수 있�
 let calculationDescription = `(${defaultResult} + 10) * 3 /2 - 1`;
 // 브라우저에서 inspection한 뒤에 styles에서 white-space: pre; 해주면 스페이스, \n이 다 나온다.
 \''         // string 속에 ' '을 출력하고 싶을 때. escape 코드!!!
+alert();        // 팝업창 띄우는 명령어
+
 // Code
 const defaultResult = 0;
 let currentResult = defaultResult;
@@ -37,3 +39,4 @@ let errorMessage = 'An error \n' +
                     'occurred!';
 
 outputResult(currentResult, calculationDescription);
+
