@@ -40,3 +40,13 @@ let errorMessage = 'An error \n' +
 
 outputResult(currentResult, calculationDescription);
 
+
+
+
+
+
+/* 27. Adding A Custom Function
+함수를 밑에 저장해도 됨. JS는 한 번 훑은 다음에 코드를 실행하기 때문.
+parameter = argument
+
+
