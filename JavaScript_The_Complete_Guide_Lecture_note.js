@@ -70,3 +70,59 @@ parameter = argument
 함수 내의 variable은 밖에서 사용할 수 없다.*/
 
 
+
+
+
+
+/* assignment 2 */
+const task3Element = document.getElementById('task-3');
+function greet() {
+    alert('Hi There');
+}
+
+function greetUser(userName) {
+    alert('Hi ' + userName)
+}
+
+function combine(str1, str2, str3) {
+    const combinedText = `${str1} ${str2} ${str3}`
+    return combinedText
+}
+
+greetUser('Hyun');
+
+task3Element.addEventListener('click', greet);
+
+
+
+
+
+
+// 36. Converting Data Types
+parseInt()      // int로 바꾼다
+parseFloat()      // Float로 바꾼다
+
+
+
+
+
+
+// 38. Splitting Code into Functions
+``   //back ticks를 사용하면 variable을 쉽게 넣을 수 있다.
+const defaultResult = 0;
+let currentResult = defaultResult;
+
+function add() {
+  const calcDescription = `${currentResult} + ${userInput.value}`; // 자동으로 str으로 변환한다.
+  currentResult = currentResult + parseInt(userInput.value);
+  outputResult(currentResult, calcDescription);
+}
+
+addBtn.addEventListener('click', add);
+
+
+
+
+
+
+// 39. Connecting all Buttons to Function
