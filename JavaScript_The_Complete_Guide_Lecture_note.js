@@ -48,5 +48,25 @@ outputResult(currentResult, calculationDescription);
 /* 27. Adding A Custom Function
 함수를 밑에 저장해도 됨. JS는 한 번 훑은 다음에 코드를 실행하기 때문.
 parameter = argument
+함수 뒤에 ;을 붙여도 되는데 안 붙이는 게 국룰임
+*/
+
+
+
+
+
+
+/* 30. The (Un)Importance of Code Order 
+변수를 사용하기 전에 let, const로 정의해주어야 사용가능하다. 
+함수는 어디에 어도 상관이 없다.*/
+
+
+
+
+
+
+/* 31. An Introduction to Global & Local Scope 
+함수 속에서는 함수 밖에서 정의된 어떤 variable도 가져올 수 있다.
+함수 내의 variable은 밖에서 사용할 수 없다.*/
 
 
