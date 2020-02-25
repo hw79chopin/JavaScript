@@ -1,18 +1,13 @@
 // JavaScript
 // 논리 연산자: 보다 복잡한 조건식을 나타낼 수 있다.
 && // 그리고
-(a >= 10) && (a < 50)
 || // 또는
-(a ==1) || (a == 100)
-! // ~가 아니다
-!(a == 100)
+! // ~가 아니다 e.g !(a == 100)
 // **, and: 조건식이 true이면 처리하고, false이면 처리하지 않는다.
 // ||, or: 조건식이 ture이면 처리하지 않고, false이면 처리한다.
 a=4;
 (a<10) || (document.write("a는 10이상<br>"));
 (a<10) && (document.write("a는 10미만"));
-
-
 
 // if문
 // if example
@@ -43,14 +38,10 @@ if (조건) {
     }
 }
 
-
-
 // for문
 for (i=1; i <4; i++) {
     document.write("안녕", i ,"<br>")
 }
-
-
 
 // while문
 s= i = 0;
@@ -59,8 +50,6 @@ do {
     s = s + i;
 } while(i<10);
 document.write("1부터 ", i, "까지의 합은", s, "<br>");
-
-
 
 // break, continue, switch로 무한루프를 깰 수 있다.
 // switch문
@@ -79,8 +68,6 @@ switch(jebi) {
         document.write("꽝!");
         break;
 }
-
-
 
 // array 관련
 a = new Array(1,2,3);   // array 생성 방법1
@@ -160,7 +147,11 @@ console.log(months);          // expected output: Array ["Jan", "Feb", "March", 
 
 
 
-// ReactDOM
-import ReactDOM from 'react-dom'
-ReactDOM.render(element, container[, callback])     // React element를 container DOM에 rendering하고 component에 대한 참조를 만환
-rendering?      // HTML로 변환해서 renderer에게 전달하는 일관 작업을 의미
+
+
+
+// methods 
+addEventListener    // 지정한 이벤트가 대상에 전달될 때마다 호출할 함수를 설정
+parseInt()      // int로 바꾼다
+parseFloat()      // Float로 바꾼다
+.toString()     // number을 str으로 바꾼다
