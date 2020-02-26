@@ -146,3 +146,23 @@ const logEntry = {};        /* 이렇게 {}로 생성!
 /* 46. Accessing Object Data    
 object 뒤에 .을 입력하면 object 내 특정 property를 특정하겠다는 것
 
+
+
+
+
+
+/* 48. undefined, null & NaN
+"undefined" is a special type and the default value for undefined variables
+"null" is actually of type object and never a default value of anything. */
+
+
+
+
+
+
+/* 50. Importing Scripts Correctly with "defer" & "async" 
+JS 파일을 하단에서 부르는 것보다 상단에서 부르는 거 훨씬 빠르다
+JS를 load할 때 쓰는 속성은 2개!
+    async: tell the browser to start loading the scripts as early as possible. 빨리 load 되는대로 실행시킴
+    defer: 모든 HTML file이 parse 될 때까지 기다리고 순서대로 load를 한다.*/
+
