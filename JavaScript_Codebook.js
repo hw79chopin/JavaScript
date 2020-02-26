@@ -1,10 +1,11 @@
-// JavaScript
-// 논리 연산자: 보다 복잡한 조건식을 나타낼 수 있다.
-&& // 그리고
-|| // 또는
-! // ~가 아니다 e.g !(a == 100)
-// **, and: 조건식이 true이면 처리하고, false이면 처리하지 않는다.
-// ||, or: 조건식이 ture이면 처리하지 않고, false이면 처리한다.
+/* JavaScript */
+
+// 논리 연산자
+&&      // 그리고
+||      // 또는
+!       // ~가 아니다 e.g !(a == 100)
+        // **, and: 조건식이 true이면 처리하고, false이면 처리하지 않는다.
+        // ||, or: 조건식이 ture이면 처리하지 않고, false이면 처리한다.
 a=4;
 (a<10) || (document.write("a는 10이상<br>"));
 (a<10) && (document.write("a는 10미만"));
@@ -150,8 +151,35 @@ console.log(months);          // expected output: Array ["Jan", "Feb", "March", 
 
 
 
-// methods 
+
+
+// operators
++=      
+-=
+*=
+/=
+++      // 1 더하기
+--      // 1 빼기
+
+
+// methods, 내장함수들
 addEventListener    // 지정한 이벤트가 대상에 전달될 때마다 호출할 함수를 설정
 parseInt()      // int로 바꾼다
 parseFloat()      // Float로 바꾼다
 .toString()     // number을 str으로 바꾼다
+.push();        // array 형식에 쓰는 메소드, 새로운 element를 array에 넣는다
+
+console.log(변수);      // development console에 output을 내보냄. 만약 저것처럼 변수를 넣으면 변수가 출력된다.
+
+
+
+
+
+
+
+
+
+
+
+// 예시모음
+console.log(logEntries[0]);         // array 맨 처음 element를 console에 출력
