@@ -125,4 +125,24 @@ addBtn.addEventListener('click', add);
 
 
 
-// 39. Connecting all Buttons to Function
+/* 42. More Core Data Types! 
+objects: data를 grouping할 때 사용하는 매우 유용한 data type이다.
+array: list of data */
+
+
+
+
+
+
+// 44. Creating Objects
+const logEntry = {};        /* 이렇게 {}로 생성!
+                            property 생성하고 :로 value와 분리!
+
+
+
+
+
+
+/* 46. Accessing Object Data    
+object 뒤에 .을 입력하면 object 내 특정 property를 특정하겠다는 것
+
