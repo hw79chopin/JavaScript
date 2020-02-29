@@ -58,7 +58,7 @@ parameter = argument
 
 /* 30. The (Un)Importance of Code Order 
 변수를 사용하기 전에 let, const로 정의해주어야 사용가능하다. 
-함수는 어디에 어도 상관이 없다.*/
+함수는 어디에 와도 상관이 없다.*/
 
 
 
@@ -166,3 +166,24 @@ JS를 load할 때 쓰는 속성은 2개!
     async: tell the browser to start loading the scripts as early as possible. 빨리 load 되는대로 실행시킴
     defer: 모든 HTML file이 parse 될 때까지 기다리고 순서대로 load를 한다.*/
 
+
+
+
+
+
+/* 74. Introducing "if" Statements & Boolean (Comparison) Operators */
+
+
+
+
+
+
+/* 81. Beyond true/ false: "Truthy" and "Falsy" Values */
+if (something)      /* something이 non-empty string이기만 하면 if문이 진행된다. 굳이 boolean이 아니여도 된다.
+
+
+
+
+
+
+/* 83. Setting Up a Bigger Example Project (The "Monster Killer") */
