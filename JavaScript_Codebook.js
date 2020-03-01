@@ -153,16 +153,23 @@ console.log(months);          // expected output: Array ["Jan", "Feb", "March", 
 
 
 
-// operators
+/* operators
+==
+!=
+===
+!==
 +=      
 -=
 *=
 /=
 ++      // 1 더하기
 --      // 1 빼기
+typeof     변수의 type을 반환함  */
 
 
 // methods, 내장함수들
+``   //back ticks를 사용하면 variable을 쉽게 넣을 수 있다.
+    const calcDescription = `${currentResult} + ${userInput.value}`;
 addEventListener    // 지정한 이벤트가 대상에 전달될 때마다 호출할 함수를 설정
 parseInt()      // int로 바꾼다
 parseFloat()      // Float로 바꾼다
@@ -183,3 +190,6 @@ console.log(변수);      // development console에 output을 내보냄. 만약 
 
 // 예시모음
 console.log(logEntries[0]);         // array 맨 처음 element를 console에 출력
+attackBtn.addEventListener('click', attackHandler);
+strongAttackBtn.addEventListener('click', strongAttackHandler);
+healBtn.addEventListener('click', healPlayerHandler);
