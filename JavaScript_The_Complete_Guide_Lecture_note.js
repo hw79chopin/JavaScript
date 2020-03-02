@@ -234,4 +234,102 @@ strongAttackBtn.addEventListener('click', strongAttackHandler)
 
 
 
-/* 87. Time for a "Heal Player" Functionality! */
+/* 90. Validating User Input */
+promt('텍스트');        // user input 받기
+isNaN();            // NaN인지 아닌지 설정
+
+
+
+
+
+
+/* 93. Introducing the Ternary Operator
+ternary operator: condition을 넣고 ?를 넣고 true일 때 값 : False일 때 값을 넣는다! */
+const userName = isLogin? 'Max' : null
+
+// 예시
+let maxDamage = mode === MODE_ATTACK ? ATTACK_BALUE : STRONG_ATTACK_VALUE;
+
+// 밑에 2개의 코드가 같은 뜻임
+if (mode === MODE_ATTACK) {
+    maxDamage = ATTACK_VALUE;
+    logEvent = LOG_EVENT_PLAYER_ATTACK;
+  } else if (mode === MODE_STRONG_ATTACK) {
+    maxDamage = STRONG_ATTACK_VALUE;
+    logEvent = LOG_EVENT_PLAYER_STRONG_ATTACK;
+  }
+
+const maxDamage = mode === MODE_ATTACK ? ATTACK_BALUE : STRONG_ATTACK_VALUE;
+const logEvent = mode === MODE_ATTACK ? LOG_EVENT_PLAYER_ATTACK : LOG_EVENT_PLAYER_STRONG_ATTACK;
+
+
+
+
+
+
+/* 95. Logical Operator "Tricks" & Shorthands
+# Boolean Tricks with Logical Operators
+- ===, > etc. just generate new boolean values which are used in the comparison. 
+- || and && generate NO booleans, they just treat the values before and after them as conditions  
+- ||는 Boolean 결과를 반환하지 않는다!! 값을 그대로 반환할 뿐이다!!! 
+- If the first value is truthy, the && operator ALWAYS returns the second value (second operand).
+- If the first operand is falsy, && always returns the first operand, NEVER the second one.*/
+
+
+
+
+
+
+/* 97. Working with the "switch-case" Statement */
+switch (ev) {
+    case LOG_EVENT_PLAYER_ATTACK:
+      logEntry.target = 'MONSTER';
+      break;
+      default:
+          ev = {};
+}
+
+
+
+
+
+
+/* 98. Introducing Loops */
+// for loop: Execute code a certain amount of times
+for (let i=0; i<3 ; i+++)
+{
+    console.log(i);
+}
+
+// for-of loop: Execute for every element in "an array"
+for (const el of array)
+{
+    console.log(el);
+}
+
+// for-in loop: Execute for every key in " an object"
+for (const key in obj) {
+    console.log(key);
+    console.log(obj[key]);
+}
+
+// while loop: Execute code as long as a condition is true
+while (isLoggedIn) { 
+    ...
+}
+
+
+
+
+
+
+/* 99. The "for" Loop */
+// for loop
+for (first; second; third) {
+    /* first part: Initialize things for the loop, any expression
+       second part: for loop을 진행시킬 조건
+       third part: for lopp을 진행하면서 추가할 것*/
+}       
+for (let i = 0; i<3; i++) {
+    console.log('------------');
+}
