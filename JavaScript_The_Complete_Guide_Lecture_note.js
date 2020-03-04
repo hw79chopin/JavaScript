@@ -333,3 +333,363 @@ for (first; second; third) {
 for (let i = 0; i<3; i++) {
     console.log('------------');
 }
+
+
+
+
+
+
+/* 100. The "for-of" Loop 
+of 뒤에는 숫자, boolean, object는 못 온다.
+Str은 array의 한 종류여서 가능!*/
+
+
+
+
+
+
+/* 101. The "for-in" Loop
+logEntry의 key를 입력받고 싶으면 .가 아니라 []를 써야 한다*/
+for (const key in logEntry) {
+    console.log(`${key} => ${logEntry[key]}`);
+  }
+
+
+
+
+
+
+/* 103. Controlling Loops with "break" */
+break;      /* stops the loop execution */
+
+
+
+
+
+
+/* 104. Controlling Iterations with "continue" */
+continue;   /* 다음 loop으로 넘어감 */
+
+
+
+
+
+
+/* 105. More Control with Labeled Statements */
+let j = 0;
+  outerWhile: do {
+    console.log('Outer', j);
+    innerFor: for (let k = 0; k < 5; k++) {
+      if (k === 3) {
+        // break outerWhile;
+        continue outerWhile; // dangerous! => Infinite loop!
+      }
+      console.log('Inner', k);
+    }
+    j++;
+  } while (j < 3);
+
+
+
+
+
+
+/* 106. Error Handling with "try-catch" - An Introduction */
+if (i < 10 || i > 0) {
+    throw { message: 'Invalid user input, not a number!'};
+}
+
+
+
+
+
+
+/* 108. Working with "try-catch" to Catch & Handle Errors */
+try {
+    let hyunWoo = getMax();
+} catch (error) {
+    console.log(error);
+    hyunWoo = 100;
+    alert('You enter sth wrong, default value is used.')
+    throw error;
+} finally {
+    // error가 나든지 말든지 실행시키는 부분
+}              // 이렇게 try, catch 문을 사용하면 error를 감지하고 알려준 뒤, 계속 시스템을 진행시킬 수 있다.
+
+
+
+
+
+
+/* 112. ES5 vs ES6+ ("Next Gen JS") - Evolution of JavaScript 
+ES: ECMA script
+
+
+
+
+
+
+/* 113. var vs let & const - Introducing "Block Scope" 
+shadow variable: function 내에서 global variable을 사용하는 것도 됨.
+if 문에서 var로 변수를 만들어줘도 global variable이 됨
+if 문에서 let으로 변수를 만들어주면 그 안에서만 작동 
+Block Scope: { }에서 선언된 변수는 { } 내에서만 유효하다!*/
+
+
+
+
+
+
+/* 114. Understanding "Hoisting" */
+console.log(userName)
+var UserName = "Max"
+/* 이렇게 하면 error가 안 나고 undefined가 뜬다.
+    var로 변수를 지정하면 맨 처음에 다 실행시킨다. 이게 바로 Hoisting 
+    근데 이렇게 하면 가독성이 매우 떨어져서 잘 안 함*/
+
+
+
+
+
+
+/* 115. Strict Mode & Writing Good Code 
+redeclaring variable은 피해라! */
+'use strict'    /* strict mode를 실행
+                   변수 지정 안 된 것을 봐주지 않음
+                   undefined 같이 built-in을 지정하는 것을 봐주지 않음 */
+
+
+
+
+
+
+/*  117. Inside the JavaScript Engine - How the Code Executes
+ Heap: Long-term memory
+ Stack: Short-term memory. Execution context, manages your program flow  */
+ 
+
+
+
+
+
+/* 119. Primitive vs Reference Values
+Primitive values: String, Numbers, Booleans, null, undefined, Symbol
+                  Easy to duplicates
+                  Stored in memory (normally on Stack)
+                  Are copied by value
+Reference values: All other objects
+                  Stored in memory(Heap)  
+                  Copying a variable copies the pointer/reference
+                  복사를 할 때 순간의 요소가 아니라 object 자체를 복사함 
+                  대신 ... operator를 통해 복사하면 value를 copy함
+const로 object을 설정해도 .push( )가 된다. 또 object의 property를 바꾸는 것도 가능하다. 왜?
+객체에 저장한 것이 address이고 .push( )는 address는 건들이지 않기 때문!*/
+ 
+
+
+
+
+
+/* 125. Parameters vs Arguments
+ parameter: 함수 내에 parameter
+ argument: 함수를 실제 실행했을 때 그 사이에 오는 것*/
+ function sayHi(name) {
+     alert("HI"+ name)
+ }
+
+ sayHi('BJ~');
+ // name은 parameter, "BJ~"는 argument
+ 
+
+
+
+
+
+/* 126. Functions vs Methods 
+object 내에 function을 넣을 수도 있다.*/
+
+
+
+
+
+
+/* 127. Functions are Objects! */
+console.dir(함수이름);         // 뭔가 다른 것을 반환
+
+
+
+
+
+
+/* 128. Function Expressions: Storing Functions in Variables */
+const func = function startGame() {         // 함수 이름은 지워줘도 된다.
+    console.log('Game is starting...')
+};
+// 이렇게 객체에 함수를 저장해줄 수 있다. 
+// 함수가 =로 객체에 지정되면 global scope로 함수의 이름이 저장되지 않는다.
+// function () {} 이거는 declaration, 객체에 저장하면 expression
+
+
+
+
+
+
+/* 129. Function Expressions vs Function Declarations */
+// 대신 function expression을 하면 위에서 함수를 부를 수가 없다.
+
+
+
+
+
+
+/* 130. Anonymous Functions */
+// 함수에 이름은 주자~
+// Anonymous function: A function without a name assigned.
+
+
+
+
+
+
+/* 133. Introducing Arrow Functions */
+const functionname = (arg1, arg2) => {
+    console.log('Hi')
+}
+
+const add = (a,b) => a+b;           // 이렇게 줄일 수 있음
+
+const ternaryFunction = ( ) => 
+condition 
+    ? True_result 
+    : else_condition 
+    ? True_result2
+    : True_result3;                 // 이렇게 줄일 수 있음
+
+
+
+
+
+
+/* 136. Default Arguments in Functions 
+2가지 parameter가 필요한데 1개만 넘겨줘도 error가 나지 않는다.
+default value를 설정하려면 함수 설정할 때 parameter = sth으로 설정해주면 된다*/
+const healthbody = (exercise, ingredient = protein) => {
+    console.log(exercise, ingredient);
+} 
+// default value는 보통 함수 뒤에 배정한다.
+//또한 앞에서 사용한 parameter를 사용해도 된다.
+
+
+
+
+
+
+/* 137. Introducing Rest Parameters ("Rest Operator") */
+const sumUp = (a, b, ...numbers) => {
+    let sum = 0;
+    for (const num of numbers) {
+        sum += num;
+    }
+    return sum;
+}
+/* 얼마나 많은 parameter가 들어올지 모를 때 사용하는 방법!  
+...를 사용하면 많은 parameter가 들어와도 array로 합친다. 
+... 앞에는 parameter를 둘 수 있지만 뒤에는 둘 수 없다. */
+
+// function으로 define하면 arguments란 것을 쓰면 따로 ...parameter를 안 줘도 된다.
+const subttractUp = function() {
+    let sum = 0;
+    for (const num of arguments) {  // 안 쓰는 것을 추천
+        sum -= num;
+    }
+    return sum;
+}
+
+
+
+
+
+
+/* 139. Understanding Callback Functions */
+// function 내에 parameter로 function을 넣을 수도 있음! like addEventListener()
+
+// 예시
+const sumUp = (resultHandler, ...numbers) => {
+  const validateNumber = (number) => {
+    return isNaN(number) ? 0 : number;
+  };
+
+  let sum = 0;
+  for (const num of numbers) {
+    sum += validateNumber(num);
+  }
+  resultHandler(sum);
+};
+
+const showResult = (result) => {
+    alert('The result after adding all numbers is: ' + result);
+  };
+  
+  sumUp(showResult, 1, 5, 'fdsa', -3, 6, 10);
+  sumUp(showResult, 1, 5, 10, -3, 6, 10, 25, 88);
+  console.log(subtractUp(1, 10, 15, 20));
+
+
+
+
+
+
+/* 140. Working with "bind()"
+object에 쓰는 method
+.bind( ): prepares the function 
+미리 알고 있는 parameter를 입력해줄 수 있다.
+prepares for execution 
+정리: allows us to preconfigure functions in places where we need to pass in a value but we also don't want to directly execute a function.*/
+
+
+
+
+
+
+/* 141. Adding bind() to the Calculator Project */
+// 예시
+function calculate(operation) {
+    const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult;
+    let operator;
+    if (operation === 'ADD') {
+      currentResult += enteredNumber;
+      operator = '+';
+    } else if (operation === 'SUBTRACT') {
+      currentResult -= enteredNumber;
+      operator = '-';
+    } else if (operation === 'MULTIPLY') {
+      currentResult *= enteredNumber;
+      operator = '*';
+    } else {
+      currentResult /= enteredNumber;
+      operator = '/';
+    }
+    createAndWriteOutput(operator, initialResult, enteredNumber);
+    writeToLog(operation, initialResult, enteredNumber, currentResult);
+  }
+  
+  addBtn.addEventListener('click', calculate.bind(this, 'ADD'));
+  subtractBtn.addEventListener('click', calculate.bind(this, 'SUBTRACT'));
+  multiplyBtn.addEventListener('click', calculate.bind(this, 'MULTIPLY'));
+  divideBtn.addEventListener('click', calculate.bind(this, 'DIVIDE'));
+
+
+
+
+
+
+/* 142. call() and apply() */ 
+// 일단은 들어만 둬~
+
+/* Wrap up
+callback function
+bind( )
+arrow function
+function in function
+rest operator */
