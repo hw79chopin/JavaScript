@@ -1,4 +1,9 @@
-/* JavaScript */
+/* JavaScript variable
+shadow variable: function 내에서 global variable을 사용하는 것도 됨.
+var has global/function scope, let and const have block scope
+block Scope: { }에서 선언된 변수는 { } 내에서만 유효하다! 
+              Variables are created in a block{} and then belong to that block. 
+              if and for-loops can also have their own, scoped variables for example.*/
 
 // 논리 연산자
 &&      // 그리고
@@ -10,7 +15,7 @@ a=4;
 (a<10) || (document.write("a는 10이상<br>"));
 (a<10) && (document.write("a는 10미만"));
 
-// if문
+// if문: if문은 return하지는 않는다.
 // if example
 a = 5;
 if(a % 2 == 0) {
@@ -39,12 +44,30 @@ if (조건) {
     }
 }
 
-// for문
-for (i=1; i <4; i++) {
-    document.write("안녕", i ,"<br>")
+// for loop: Execute code a certain amount of times
+for (let i=0; i<3 && i>0 ; i+++)
+{
+    console.log(i);
+    /*  */
 }
 
-// while문
+// for-of loop: Execute for every element in "an array"
+for (const el of array)
+{
+    console.log(el);
+}
+
+// for-in loop: Execute for every key in " an object"
+for (const key in obj) {
+    console.log(key);
+    console.log(obj[key]);
+}
+
+// while loop: Execute code as long as a condition is true
+while (isLoggedIn) { 
+    ...
+}
+
 s= i = 0;
 do {
     ++i;
@@ -52,7 +75,13 @@ do {
 } while(i<10);
 document.write("1부터 ", i, "까지의 합은", s, "<br>");
 
+do {
+    console.log(j);
+    j++;
+  } while (j < 3);      // 이렇게 하면 console.log를 먼저 실행한다!
+
 // break, continue, switch로 무한루프를 깰 수 있다.
+
 // switch문
 jebi = window.prompt("제비뽑아라 \n 1~10까지 숫자를 입력해라")
 switch(jebi) {
@@ -70,7 +99,47 @@ switch(jebi) {
         break;
 }
 
-// array 관련
+// try, catch 문
+try {
+    let hyunWoo = getMax();
+} catch (error) {
+    console.log(error);
+    hyunWoo = 100;
+    alert('You enter sth wrong, default value is used.')
+}
+/* try block: code that could throw an error goes into the try block
+   catch block: The error handling and fallback logic goes into the catch block */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* operators */
+==
+!=
+===
+!==
++=      
+-=
+*=
+/=
+++      // 1 더하기
+--      // 1 빼기
+typeof     변수의 type을 반환함
+// ternary operator: condition을 넣고 ?를 넣고 true일 때 값 : False일 때 값을 넣는다! */
+
+
+// methods, 내장함수들
+console.log();              // console에 ( )을 반환
+console.dir();              // 뭔가 다른 것을 반환
 a = new Array(1,2,3);   // array 생성 방법1
 a = [1,2,3];    // array 생성 방법2
 a.push(3);      // 끝에 추가하기
@@ -96,88 +165,33 @@ now.getHours();         // 시간을 반환
 now.getMinutes();       // 분을 반환
 now.getSeconds();       // 초를 반환
 now.getTime();          // 1970-01-01 00:00:00부터 현재 시간까지를 밀리초 단위로 반환
-
 map()
-const array1 = [1, 4, 9, 16];
-const map1 = array1.map(x => x * 2);
-console.log(map1);     // expected output: Array [2, 8, 18, 32]
-
 find()  //returns the value of the first element in the provided array that satisfies the provided testing function.
-const array1 = [5, 12, 8, 130, 44];
-const found = array1.find(element => element > 10);
-console.log(found);    // expected output: 12
-
 findIndex()
-const array1 = [5, 12, 8, 130, 44];
-const isLargeNumber = (element) => element > 13;
-console.log(array1.findIndex(isLargeNumber));     // expected output: 3
-
 filter()
-const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-const result = words.filter(word => word.length > 6);
-console.log(result);      // expected output: Array ["exuberant", "destruction", "present"]
-
 reduce()  // executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
-const array1 = [1, 2, 3, 4];
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
-console.log(array1.reduce(reducer));          // expected output: 10
-console.log(array1.reduce(reducer, 5));       // expected output: 15
-
 concat()
-const array1 = ['a', 'b', 'c'];
-const array2 = ['d', 'e', 'f'];
-const array3 = array1.concat(array2);
-console.log(array3);        // expected output: Array ["a", "b", "c", "d", "e", "f"]
-
 slice()
-const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
-console.log(animals.slice(2));          // expected output: Array ["camel", "duck", "elephant"]
-console.log(animals.slice(2, 4));       // expected output: Array ["camel", "duck"]
-console.log(animals.slice(1, 5));       // expected output: Array ["bison", "camel", "duck", "elephant"]
-
 splice()
-const months = ['Jan', 'March', 'April', 'June'];
-months.splice(1, 0, 'Feb');    // inserts at index 1
-console.log(months);          // expected output: Array ["Jan", "Feb", "March", "April", "June"]
-months.splice(4, 1, 'May');   // replaces 1 element at index 4
-console.log(months);          // expected output: Array ["Jan", "Feb", "March", "April", "May"]
-
-
-
-
-
-
-
-
-
-
-
-
-/* operators
-==
-!=
-===
-!==
-+=      
--=
-*=
-/=
-++      // 1 더하기
---      // 1 빼기
-typeof     변수의 type을 반환함  */
-
-
-// methods, 내장함수들
 ``   //back ticks를 사용하면 variable을 쉽게 넣을 수 있다.
-    const calcDescription = `${currentResult} + ${userInput.value}`;
-addEventListener    // 지정한 이벤트가 대상에 전달될 때마다 호출할 함수를 설정
+addEventListener('', )    // 지정한 이벤트가 대상에 전달될 때마다 호출할 함수를 설정    
 parseInt()      // int로 바꾼다
 parseFloat()      // Float로 바꾼다
+.toUpperCase();     // 대문자로 바꾼다
 .toString()     // number을 str으로 바꾼다
-.push();        // array 형식에 쓰는 메소드, 새로운 element를 array에 넣는다
-
-console.log(변수);      // development console에 output을 내보냄. 만약 저것처럼 변수를 넣으면 변수가 출력된다.
-
+promt('텍스트');        // user input 받기
+isNaN();            // NaN인지 아닌지 설정
+Object.property = '';       // 아직 없는 property를 이렇게 정해줄 수 있음
+switch (expression) {
+    case Condition:
+    expression.target = 'MONSTER';
+    break;
+    default:
+        expression = {};
+}                    // ( ) 안에 원하는 property, expression이 들어가고 조건이 맞으면 실행할 코드를 넣고 break!
+.bind()              // prepares the function
+.apply()
+.call()
 
 
 
@@ -193,3 +207,58 @@ console.log(logEntries[0]);         // array 맨 처음 element를 console에 �
 attackBtn.addEventListener('click', attackHandler);
 strongAttackBtn.addEventListener('click', strongAttackHandler);
 healBtn.addEventListener('click', healPlayerHandler);
+const logEvent = mode === MODE_ATTACK ? LOG_EVENT_PLAYER_ATTACK : LOG_EVENT_PLAYER_STRONG_ATTACK;           // ternary operator
+const array1 = [1, 4, 9, 16];
+const map1 = array1.map(x => x * 2);
+console.log(map1);     // expected output: Array [2, 8, 18, 32]
+
+const array1 = [5, 12, 8, 130, 44];
+const found = array1.find(element => element > 10);
+console.log(found);    // expected output: 12
+
+const array1 = [5, 12, 8, 130, 44];
+const isLargeNumber = (element) => element > 13;
+console.log(array1.findIndex(isLargeNumber));     // expected output: 3
+
+const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+const result = words.filter(word => word.length > 6);
+console.log(result);      // expected output: Array ["exuberant", "destruction", "present"]
+
+const array1 = [1, 2, 3, 4];
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+console.log(array1.reduce(reducer));          // expected output: 10
+console.log(array1.reduce(reducer, 5));       // expected output: 15
+
+const array1 = ['a', 'b', 'c'];
+const array2 = ['d', 'e', 'f'];
+const array3 = array1.concat(array2);
+console.log(array3);        // expected output: Array ["a", "b", "c", "d", "e", "f"]
+
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+console.log(animals.slice(1, 5));       // expected output: Array ["bison", "camel", "duck", "elephant"]
+console.log(animals.slice(2));          // expected output: Array ["camel", "duck", "elephant"]
+console.log(animals.slice(2, 4));       // expected output: Array ["camel", "duck"]
+
+const months = ['Jan', 'March', 'April', 'June'];
+months.splice(1, 0, 'Feb');    // inserts at index 1
+console.log(months);          // expected output: Array ["Jan", "Feb", "March", "April", "June"]
+months.splice(4, 1, 'May');   // replaces 1 element at index 4
+console.log(months);          // expected output: Array ["Jan", "Feb", "March", "April", "May"]
+
+switch (ev) {
+    case LOG_EVENT_PLAYER_ATTACK:
+      logEntry.target = 'MONSTER';
+      break;
+
+const calcDescription = `${currentResult} + ${userInput.value}`;
+
+prompt('Type your name: ', '').toUpperCase();
+
+// rest operator
+const sumUp = (a, b, ...numbers) => {
+    let sum = 0;
+    for (const num of numbers) {
+        sum += num;
+    }
+    return sum;
+}
