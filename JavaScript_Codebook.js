@@ -139,7 +139,7 @@ typeof     변수의 type을 반환함
 
 // methods, 내장함수들
 console.log();              // console에 ( )을 반환
-console.dir();              // 뭔가 다른 것을 반환
+console.dir();              // 해당 객체의 attributes를 반환
 a = new Array(1,2,3);   // array 생성 방법1
 a = [1,2,3];    // array 생성 방법2
 a.push(3);      // 끝에 추가하기
@@ -193,8 +193,36 @@ switch (expression) {
 .apply()
 .call()
 
+// query method
+document.querySelector(CSSselector);       // 처음에 매칭되는 것만 함
+document.getElementById(ID);
+document.querySelectorAll(CSSselector);
+document.getElementsByClassName(CSSClass);
+document.getElementsByTagName(HTMLTAG);
+h1.setAttribute('value', 'some other default text')
 
+// styling DOM elements
+.classList.contains();     // class가 있는지 없는지 확인
+.classList.add()            // class 추가
+.classList.remove()         // class 제거
+.classList.toggle()         // class 껏다 키기
 
+// Dom traversing
+.textContent = '새로운 텍스트';    // 이렇게 하면 text가 바뀜
+.iD        // id를 반환
+.className       // class 이름을 반환
+.firstElementChild      // 바로 밑 child를 반환
+.firstChildChild        // 바로 밑 child를 반환
+.closest                // 가장 가까운 ancestor를 반환
+.previousElementSibling         // sibling을 반환
+.nextSibling                // sibling을 반환
+.nextElementSibling         // sibling을 반환
+
+// Adding elements via HTML
+section.textContent
+section.innerHTML = '<h2>A new title </h2>';          // tags 속에 있던 모든 nodes(tags)를 다 없앤다.
+list.innerHTML = list.innerHTML + '<li>Item 4</li>'          // 단점: 모든 innerHTML를 re-render한다. performance가 떨어진다. 그래서 기존의 user input도 사라진다.
+list.insertAdjacentElement('beforeend', '<p>New Text!</p>')          // 위의 단점을 해결하는 방법! parameter [beforebegin | afterbegin | beforeend | afterend]. user input이 안 사라진다.
 
 
 
@@ -262,3 +290,25 @@ const sumUp = (a, b, ...numbers) => {
     }
     return sum;
 }
+
+const p = document.getElementById('id-name')
+p.textContent = '새로운 텍스트';    // 이렇게 하면 text가 바뀜
+p.iD        // id를 반환
+p.className       // class 이름을 반환
+
+const h1 = document.querySelector('h1')
+h1.style.color = 'white';
+h1.style.backgroundColor = 'red';       // 이렇게 바꿀 수도 있음
+
+// classList 활용법 (styling DOM elements)
+const section = document.querySelector('section');
+const button = document.querySelector('button');
+button.addEventListener('click', () => {
+  ~~~
+})
+section.classList.contains();     // class가 있는지 없는지 확인
+section.classList.add()         // class 추가
+section.classList.remove()         // class 제거
+section.classList.toggle()         // class 껏다 키기
+
+
