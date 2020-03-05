@@ -693,3 +693,209 @@ bind( )
 arrow function
 function in function
 rest operator */
+
+
+
+
+
+
+/* 146. What's the "DOM"? 
+# JS와 Browser는 항상 interact
+  rendering: HTML을 입력받아 해석해서 모니터로 출력해주는 작업!
+  JS는 Hosted Language -> browser가 JS를 위한 환경을 제공
+  나아가 Browser는 다른 API도 많이 제공한다.
+  browser가 JS가 HTML code와 interact하게 도와주는 게 DOM!
+  document object도 JS와 HTML page가 interact하는 object
+# DOM = Document Object Model
+          It's part of the APIs exposed to JS by the browser window object
+document: Root DOM Node */
+
+
+
+
+
+
+/* 147. Document and Window Object */
+// window에 alert function이 존재!
+
+
+
+
+
+
+
+/* 149. Nodes & Elements - Querying the DOM Overview
+# querySelector(), getElementById()
+ - Return single elements (first match)
+ - Different ways of querying elements (by CSS selector, by ID)
+# querySelectorALL(), getElements ByTagName()...
+ - Return collections of elements (array-like-objects): NodeList
+ - Different ways of querying elements
+# Nodes
+ - the objects that make up the DOM
+ - HTML tags are element nodes
+# Elements
+ - one type of nodes */
+
+
+
+
+
+
+
+/* 150. Selecting Elements in the DOM */
+document.querySelector(CSSselector);       // 처음에 매칭되는 것만 함
+document.getElementById(ID);
+document.querySelectorAll(CSSselector);
+document.getElementsByClassName(CSSClass);
+document.getElementsByTagName(HTMLTAG);
+
+
+
+
+
+
+
+/* 152. Exploring and Changing DOM Properties */
+const p = document.getElementById('id-name')
+p.textContent = '새로운 텍스트';    // 이렇게 하면 text가 바뀜
+p.iD        // id를 반환
+p.className       // class 이름을 반환
+
+const h1 = document.querySelector('h1')
+h1.style.color = 'white';
+h1.style.backgroundColor = 'red';       // 이렇게 바꿀 수도 있음
+
+
+
+
+
+
+/* 153. Attributes vs Properties
+- browser는 user가 입력한 attributes로 DOM object를 만든다 
+- attribute: thing in you HTML code, HTML text
+- property: value stored in the object created based on your HTML code */
+h1.setAttribute('value', 'some other default text')     // 이렇게 바꿀 수도 있음
+
+
+
+
+
+
+/* 155. Traversing the DOM - Overview 
+# traversing the DOM?
+ - It means that once you selected one element, one node therefore, you might be intered in diving into 
+   all of its child nodes
+ - 모든 node를 선택하는 대신 element를 고른 뒤 children, siblings로 move하는 것! */
+ <div>
+   <p>
+     A <em> child! </em>
+   </p>
+ </div>    /* 
+# Child
+ - direct chile node or element
+ - 여기서 p는 div의 direct child다. em은 child는 아니다.
+
+# Descendant
+ - direct or indirect childe node or element
+ - 위의 예시에서는 p, em 모두가 div의 descendant다.
+
+# Parent
+ - direct parent node or element
+
+# Ancestor
+ - direct or indirect parent node/element  */
+
+
+
+
+
+
+
+/* 156. Traversing Child Nodes */
+const ul = document.querySelector('ul');
+ul.children[1]      // qurerySelector는 첫 번째 애만 반환하기 때문에 children에 들어가려면 이렇게 해야함
+ul.childNodes
+ul.lastElementChild
+.firstElementChild
+.firstChildChild
+
+
+
+
+
+
+/* 157. Using parentNode & parentElement */
+// querySelector로 지정한 뒤 closest로 가장 가까운 ancestor를 선택가능!
+const liFirst = documnet.querySelector('li');
+liFirst.closest('body')
+liFirst.closest('header')
+
+
+
+
+
+
+/* 158. Selecting Sibling Elements */
+// sibling: 같은 indent내에 있는 애들
+.previousElementSibling
+.nextSibling
+.nextElementSibling
+
+
+
+
+
+
+/* 159. DOM Traversal vs Query Methods
+# Query methods
+ - documnet.querySelector와 같은 방법
+
+# Dom Traversal
+ - document.body.firstElementChile와 같은 방법 */
+
+
+
+
+
+
+/* 160. Styling DOM Elements
+- Via style Property
+- Via className
+- Via classList
+- className을 바꿀 수도 있고 추가할 수도 있고 등등*/
+const section = document.querySelector('section');
+const button = document.querySelector('button');
+
+button.addEventListener('click', () => {
+  ~~~
+})
+section.classList.contains();     // class가 있는지 없는지 확인
+section.classList.add()         // class 추가
+section.classList.remove()         // class 제거
+section.classList.toggle()         // class 껏다 키기
+
+
+
+
+
+
+/* 161. Creating Elements with JS - Overview */
+// 1. HTML을 JS에 쓸 수 있다.
+// 2. document.createElement()를 사용!
+
+
+
+
+
+
+/* 162. Adding Elements via HTML in Code */
+const section = document.querySelector('section');
+section.textContent
+section.innerHTML = '<h2>A new title </h2>';    // tags 속에 있던 모든 nodes(tags)를 다 없앤다.
+
+const list = document.querySelector('ul');
+list.innerHTML = list.innerHTML + '<li>Item 4</li>'   // 단점: 모든 innerHTML를 re-render한다. performance가 떨어진다. 그래서 기존의 user input도 사라진다.
+list.insertAdjacentElement('beforeend', '<p>New Text!</p>')     // 위의 단점을 해결하는 방법! parameter [beforebegin | afterbegin | beforeend | afterend]. user input이 안 사라진다.
+
+
