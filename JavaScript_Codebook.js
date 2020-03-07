@@ -192,6 +192,7 @@ switch (expression) {
 .bind()              // prepares the function
 .apply()
 .call()
+.trim()              // input의 앞 뒤에 whitespace를 없애준다.
 
 // query method
 document.querySelector(CSSselector);       // 처음에 매칭되는 것만 함
@@ -201,13 +202,12 @@ document.getElementsByClassName(CSSClass);
 document.getElementsByTagName(HTMLTAG);
 h1.setAttribute('value', 'some other default text')
 
-// styling DOM elements
+// DOM
 .classList.contains();     // class가 있는지 없는지 확인
 .classList.add()            // class 추가
 .classList.remove()         // class 제거
-.classList.toggle()         // class 껏다 키기
-
-// Dom traversing
+.classList.toggle('클래스이름', true);       // 클래스가 존재하면 제거하고, 존재하지 않으면 추가한다.
+                                            // true: 클래스 값을 추가, false: 클래스 값을 제거
 .textContent = '새로운 텍스트';    // 이렇게 하면 text가 바뀜
 .iD        // id를 반환
 .className       // class 이름을 반환
@@ -217,15 +217,23 @@ h1.setAttribute('value', 'some other default text')
 .previousElementSibling         // sibling을 반환
 .nextSibling                // sibling을 반환
 .nextElementSibling         // sibling을 반환
-
-// Adding elements via HTML
+document.createElement('태그이름');       // create new DOM object
+태그이름.appendChild('만든태그이름');       // insert new DOM object
 section.textContent
 section.innerHTML = '<h2>A new title </h2>';          // tags 속에 있던 모든 nodes(tags)를 다 없앤다.
 list.innerHTML = list.innerHTML + '<li>Item 4</li>'          // 단점: 모든 innerHTML를 re-render한다. performance가 떨어진다. 그래서 기존의 user input도 사라진다.
 list.insertAdjacentElement('beforeend', '<p>New Text!</p>')          // 위의 단점을 해결하는 방법! parameter [beforebegin | afterbegin | beforeend | afterend]. user input이 안 사라진다.
-
-
-
+태그이름.append(텍스트);          // Internet Explorer에는 못 쓴다.
+태그이름.prepend(태그이름);       // 맨 앞에 붙일 수 있음.
+태그이름.lastElementChild.before(다른태그이름);       // existing 태그 앞에 삽입하기
+태그이름.lastElementChild.after(다른태그이름);       // existing 태그 앞에 삽입하기
+태그이름.insertAdjacentElement('afterend');         // element를 내가 고른 element뒤에 배치
+태그이름.cloneNode(false);          // true하면 chile element와 다른 전부를 복사함.
+태그이름.cloneNode(false);          // true하면 chile element와 다른 전부를 복사함.
+태그이름.remove();        // remove from the DOM, rendered page
+태그이름.parentElement.removeChild();       // 원하는 child를 remove
+태그이름.style.backgroundColor = 'red'; 
+태그이름.style.display= 'red';              // 이런 식으로 DOM의 CSS 명령을 바꿀 수 있음
 
 
 
@@ -299,6 +307,7 @@ p.className       // class 이름을 반환
 const h1 = document.querySelector('h1')
 h1.style.color = 'white';
 h1.style.backgroundColor = 'red';       // 이렇게 바꿀 수도 있음
+h1.style.display = 'block'
 
 // classList 활용법 (styling DOM elements)
 const section = document.querySelector('section');
@@ -311,4 +320,14 @@ section.classList.add()         // class 추가
 section.classList.remove()         // class 제거
 section.classList.toggle()         // class 껏다 키기
 
-
+// EventListener Remove 하기
+let confirmDeletionButton = deleteMovieModal.querySelector('.btn--danger'); // let으로 꾸고
+confirmDeletionButton.replaceWith(confirmDeletionButton.cloneNode(true));   // 새로 지정하고
+confirmDeletionButton = deleteMovieModal.querySelector('.btn--danger');
+cancelDeletionButton.removeEventListener('click', closeMovieDeletionModal);
+// 초기화 시켜주고
+cancelDeletionButton.addEventListener('click', closeMovieDeletionModal);
+confirmDeletionButton.addEventListener(
+  'click',
+  deleteMovieHandler.bind(null, movieId)
+);
