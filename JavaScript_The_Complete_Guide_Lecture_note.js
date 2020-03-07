@@ -612,7 +612,6 @@ const subttractUp = function() {
 
 /* 139. Understanding Callback Functions */
 // function 내에 parameter로 function을 넣을 수도 있음! like addEventListener()
-
 // 예시
 const sumUp = (resultHandler, ...numbers) => {
   const validateNumber = (number) => {
@@ -899,3 +898,154 @@ list.innerHTML = list.innerHTML + '<li>Item 4</li>'   // 단점: 모든 innerHTM
 list.insertAdjacentElement('beforeend', '<p>New Text!</p>')     // 위의 단점을 해결하는 방법! parameter [beforebegin | afterbegin | beforeend | afterend]. user input이 안 사라진다.
 
 
+
+
+
+
+/* 163. Adding Elements via createElement() */
+document.createElement('태그이름');       // create new DOM object
+// 태그를 만들고 Insert를 해야지 웹 상에 보인다.
+태그이름.appendChild('만든태그이름');       // 이렇게 해야 웹 상에 표시된다.
+
+
+
+
+
+
+/* 164. Inserting DOM Elements */
+태그이름.append(텍스트);          // Internet Explorer에는 못 쓴다.
+태그이름.prepend(태그이름);       // 맨 앞에 붙일 수 있음.
+태그이름.lastElementChild.before(다른태그이름);       // existing 태그 앞에 삽입하기
+태그이름.lastElementChild.after(다른태그이름);       // existing 태그 앞에 삽입하기
+태그이름.insertAdjacentElement('afterend');         // element를 내가 고른 element뒤에 배치
+
+
+
+
+/* 165. Cloning DOM Nodes */
+태그이름.cloneNode(false);          // true하면 chile element와 다른 전부를 복사함.
+
+
+
+
+
+/* 167. Removing Elements */
+태그이름.remove();        // remove from the DOM, rendered page
+태그이름.parentElement.removeChild();       // 원하는 child를 remove
+
+
+
+
+
+/* 171. Selecting the Modal and "Add" Button */
+const addMovieModal = document.getElementById('add-modal');
+const addMovieModal = document.querySelector('#add-modal');
+const addMovieModal = document.body.children[1];
+// 이렇게 3가지 방식으로 선택할 수 있다.
+const startAddMovieButton = document.getElementById('header button');
+const startAddMovieButton = document.getElementById('header').lastElementChild;
+// 이건 2가지 방식으로 선택가능
+
+
+
+
+
+
+/* 173. Controlling the Backdrop */
+classList.toggle('클래스이름', true);       // 클래스가 존재하면 제거하고, 존재하지 않으면 추가한다.
+                                           // true: 클래스 값을 추가, false: 클래스 값을 제거
+/* 기본 아이디어
+1. querySelector / getElementbyId로 HTML의 CSS element를 가져와서 const에 저장해주고
+2. 저장된 객체에 addEventListener를 사용해서 click 했을 때 무슨 변화가 있을지 
+3. 함수로 만들어준다. 여기서 toggle은 class를 생성해주고 없애주는 역할
+.~~~ 는 클래스 지정이고
+#~~~ 는 id 지정이고
+~~~ 그냥 쓰면 tag 지정이다!
+
+
+
+/* 174. Fetching and Validating User Input */
+// querySelector는 태그 이름을 가져가는 친구
+.trim()     // remove excess whitespace at the beginning and at the end of the input
+
+
+
+
+
+
+/* 175. Creating a Movie in JavaScript & Clearing the Input */
+/* querySelectAll로 모든 input을 선택해서
+[0].value, [1].value, [2].value로 input값을 const에 저장해주고
+input값 잘 넣었는지도 확인한 뒤
+empty array object 만들고 input을 object에 저장한 뒤 array에 push!
+그리고 창 닫을 때 input값 비워주기!
+
+
+
+
+
+
+/* 176. Rendering Movie Items on the Screen */
+/* DOM style 바꾸기
+위처럼 toggle을 통해서 class 이름을 추가 or 삭제해서 UI를 바꿔줄 수도 있고
+DOM의 style을 바꾸는 방식으로도 interactive하게 UI를 조정할 수 있다. */
+entryTextSection.style.display=  'none';
+/* 많은 웹에서 사용하는 장바구니, 추천 상품 등에 쓰는 방법인 것 같음.
+우선 기본으로 띄워지는 창이 input이 들어가면 (length가 0이 아니면) 사라지게 DOM으로 style.display를 변경하고
+그 input에 따른 새로운 element를 만들어준다! (기존 HTML 파일에는 <ul> 태그만 있고 나머지는 비어있음)
+<div> 태그에 class 이름을 추가하여 innerHTML로 새로운 값들을 넣어준다!
+그리고 마지막에 기존 HTML element에 append하면 끝!
+*/
+
+
+
+
+
+
+
+/* 177. Deleting Movie Elements
+삭제하고 싶은 태그를 id, query로 지정해주고
+그것을 클릭했을 때 child를 remove 해주는 형식으로 삭제한다! 
+전체 데이터를 담고 있는 object에서도 삭제해주는 거 잊지 말고!
+*/
+
+
+
+
+
+
+/* 178. Showing & Hiding the "Are you sure?" Dialog 
+toggle하는 것을 add랑 remove로 바꿔서 함수를 2개로 만들어주고
+id로 element를 불러와서 누르는 거에 따라서 visible하게 바꾸고 toggleBackDrop 바꾸는 방식으로 Show & Hide
+*/
+
+
+
+
+
+
+/* 180. Finishing the App */
+/* 함수 내에 addEventListener를 넣으니까 계속 생성이 되고
+나중에 Yes를 click했을 때 전부 다 실행이 되서 다 날라가게 되는 문제가 있었다!
+removeEventLister를 넣어서 Event를 없앤다!!!*/
+let confirmDeletionButton = deleteMovieModal.querySelector('.btn--danger'); // let으로 꾸고
+confirmDeletionButton.replaceWith(confirmDeletionButton.cloneNode(true));   // 새로 지정하고
+confirmDeletionButton = deleteMovieModal.querySelector('.btn--danger');
+cancelDeletionButton.removeEventListener('click', closeMovieDeletionModal);
+// 초기화 시켜주고
+cancelDeletionButton.addEventListener('click', closeMovieDeletionModal);
+confirmDeletionButton.addEventListener(
+  'click',
+  deleteMovieHandler.bind(null, movieId)
+);
+
+
+
+
+
+
+/* 81. Wrap Up */
+/* 배운 것들
+Being able to select elements in different ways
+Being able to traverse the DOM select child elements
+Changing styles, assign classes, remove, add, swap elements*/
