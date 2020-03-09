@@ -1044,8 +1044,284 @@ confirmDeletionButton.addEventListener(
 
 
 
-/* 81. Wrap Up */
+/* 181. Wrap Up */
 /* 배운 것들
 Being able to select elements in different ways
 Being able to traverse the DOM select child elements
 Changing styles, assign classes, remove, add, swap elements*/
+
+
+
+
+
+/* 183. Module Introduction
+Creaing Arrays
+Working with Arrays
+Array Methods
+Other iterables */
+
+
+
+
+
+
+/* 184. What are "Iterables" and "Array-like Objects"?
+# Iterable: for-of loop에 쓴당
+# Array-lie object: length property와 index가 있는 것  */
+
+
+
+
+
+
+/* 185. Creating Arrays */
+const numbers = [1,2,3];    // 가장 심플한 방법
+const moreNumbers = new Array();    /* [] 이렇게 생성됨
+대신 이 방법을 쓰고 1개의 single number만 전해주면 empty array with 'argument' length Array가 나온다.*/
+const moreNumbers = Array();        /* new를 생략해줘도 된다.   */
+const yetMoreNumbers = Array.of(1,2);     // 이렇게도 생성가능
+const listItems = document.querySelectorAll('li');
+const arraylistItems = Array.from(listItems);           // Array.from은 iterable이나 array-like object를 array로 바꿔준다.
+
+
+
+
+
+
+/* 186. Which Data Can You Store In Arrays?
+별거 다 넣을 수 있다.
+array는 index-based이다! */
+
+
+
+
+
+
+/* 187. push(), pop(), unshift(), shift() - Adding & Removing Elements */
+arrayName.push('');       // array에 element 맨 뒤에 추가하기
+arrayName.unshift('');      // array에 element 맨 앞에 추가하기
+arrayName.pop();          // array 맨 끝에 element 제거하기
+arrayName.shift();        // 맨 처음 element를 제거한다.
+arrayName[인덱스] = '텍스트';   // 인덱스로 element를 replace한다. 인덱스가 arrray length를 넘어가면 empty space들이 만들어진다 -> 거의 안 씀
+
+
+
+
+
+
+/* 188. The splice() Method */
+arrayName.splice(startIndex, howMany, addElement1, addElement2);       // startIndex부터 howMany에서 주어진 개수만큼 element를 삭제한다. 그 뒤에 addElements를 추가한다.
+arrayName.splice(0);      // array를 다 없앤다. 그리고 없어진 element를 반환하다.
+
+
+
+
+
+
+/* 189. Selecting Ranges & Creating Copies with slice() */
+const newArray = arrayName.slice();        /* .slice()는 기존 array를 복사해서 새로운 array로 돌려준다.
+                                               이를 통해서 기존 array에 element를 건들여도 새로운 array는 영향을 미치지 않게 된다.*/
+newArraya.slice(startIndex, endIndex);      // startIndex에서 endIndex까지 array를 slicing해서 새로운 array로 반환한다.
+newArraya.slice(startIndex);            // endIndex가 없으면 startIndex부터 끝까지 slicing한다.
+
+
+
+
+
+
+/* 190. Adding Arrays to Arrays with concat() */
+const newArray = oldArray.concat([1,2,3]);          // push( )는 array를 한 element로 앞에 넣는다면 concat( )은 array의 element를 각각 뒤에 넣은 새로운 array를 반환한다.
+
+
+
+
+
+
+
+/* 191. Retrieving Indexes with indexOf() /& lastIndexOf() */
+arrayName.indexOf(element);        // element의 첫 번째 index를 반환한다. 못 찾으면 -1을 반환한다.
+newArrarrayNameay.lastIndexOf(element);        // element의 첫 번째 index를 뒤에서부터 찾아서 반환한다. primitive value에는 잘 먹히나 reference value에는 잘 안 먹힌다.
+
+
+
+
+
+
+/* 192. Finding Stuff: find() and findIndex() */
+arrayName.find((arguemnt1, arg2, arg3) => {});       /* argument에 function이 와도 된다. 3개의 argument가 가능하다.
+                                   첫 번째 argument: single object of that array
+                                   두 번째 arguemnt: index of the single element
+                                   세 번째 argument: full array 
+                                   함수를 arrayName의 모든 element에 적용
+                                   find는 copy를 만들지는 않는다 */
+arrayName.findIndex();          // matching element의 index를 반환한다.
+// 예시
+const manuel = personData.find((person, idx, persons) => {
+  return person.name === 'Manuel';
+});
+
+manuel.name = 'Anna';
+
+console.log(manuel, personData);
+
+
+
+
+
+/* 193. Is it Included? */
+arrayName.includes();        // primitive value에 적합!
+
+
+
+
+
+
+/* 194. Alternative to for Loops: The forEach() Method */
+arrayName.forEach((arg1, index, arg2) => {function을쓰자;});         /* for-of loop 대체품! arg1: for loop의 element, index은 index
+
+
+
+
+
+
+/* 195. Transforming Data with map() */
+arrayName.map();           // map()은 taking an array, run a function하고 element를 바꾼 새로운 array를 반환!! 
+
+
+
+
+
+
+/* 196. sort()ing and reverse()ing */
+arrayName.sort();         // array를 string으로 바꾸고 sort한다.
+arrayName.reverse();      // 반대로 sort한다.
+
+
+
+
+
+
+/* 197. Filtering Arrays with filter() */
+arrayName.filter((arg1, index, arg2 ) => {});       // 기존 array에 손대지 않고 새로운 array를 반환한다. arg1은 찾고 있는 value, index는 index, arg2는 original array이고 잘 안 쓴다.
+
+
+
+
+
+
+
+/* 199. The Important reduce() Method */
+arrayName.reduce((preValue, curValue, curIndex, originArray) => preValue + curValue, 0);             // 앞에 두 개 arguments를 많이 쓴다! 0은 initial value다!
+// reduce()는 array를 simpler value로 줄인다.
+/* reduce() executes the function on the every element in the array
+preValue는 첫 번째 execution에서만 initial value가 정해져있으면 initial value가 없으면 undefined이다. 
+curValue는 array의 first element다.
+두 번째 execution부터는 preValue가 이전 return 값이고 curValue는 다음 element이다.
+Reduce function은 array내의 values를 합쳐 single value를 만드는 데 정말 유용하다. */
+
+
+
+
+
+
+/* 201. Arrays & Strings - split() and join() */
+data.split('');         // split 하기! python3랑 syntax가 같음
+data.join('');          // join 시키기! str을 만든다.default로 ,로 구분함.
+
+
+
+
+
+
+/* 202. The Spread Operator (...) */
+// 기존 array를 변동해도 복사한 array는 바뀌지 않는다.
+// .min( )처럼 array를 argument로 받지 않는 메소드에 ...를 쓰면 굉장히 유용하다!!! to pull elements from the array
+
+
+
+
+
+
+/* 203. Understanding Array Destructuring */
+const [ newArray1 , newArray2, ...otherInfo ] = oldArray;    // array destructuring!
+
+
+
+
+
+
+/* 204. Maps & Sets - Overview */
+/* three major iterable data structure
+1. Arrays
+2. Set
+3. Maps           */
+
+
+
+
+
+
+/* 205. Working with Sets */
+const newSet = new Set();      // 이 방법으로만 Set을 만들 수 있음
+newSet.has();            // argument가 있는지 없는지 확인. boolean으로 반환
+newSet.add();            // Set에 argument를 추가!
+newSet.entries();        // return iterable. entry는 같은 value가 2번 반복된 array다.
+newSet.delete();         // set에서 삭제하기!
+
+
+
+
+
+
+/* 206. Working with Maps */
+const newMap = new Map();         // key, value 형태로 넣어줘야 함! Key has to be an object.
+const newMap = new Map([[person1, [{date: 'yesterday', price:10}]]]);
+newMap.set();           // 새로운 entry 넣어주기, key, value 형태로 넣어줘야 함!
+newMap.keys();          // key를 얻을 수 있다.
+newMap.values();          // value를 얻을 수 있다.
+newMap.has();           // 특정 key가 map에 있는지 확인
+for (const [key, value] of newMap.entries()) {
+  console.log(key, value);
+}                       // 이렇게 정보를 뽑을 수 있다!
+
+for (const key of newMap.keys()) {
+  console.log(key);
+}
+
+for (const value of newMap.values()) {
+  console.log(value);
+}
+
+
+
+
+
+
+/* 207. Maps vs Objects
+Maps: key로 어떤 value든 가능하다!      
+      large data에서 성능이 좋다.
+      자주 data를 수정할 때 성능이 더 좋다.
+Objects: key로 str, number, symbols만 가능하다.
+         small, medium data에 좋다.        
+         생성하기 빠르다.     */
+
+
+
+
+
+
+/* 208. Understanding WeakSet */
+// 자주 안 쓴다~
+let person = {name : 'Hyun'};
+const persons = new WeakSet();          // WeakSet에는 object만 넣을 수 있음
+persons.add(person);
+persons.method();                 // 쓸 수 있는 메소드가 한정됨 (add, delete, has)
+
+
+
+
+
+
+/* 209. Understanding WeakMap */
+const personData = new WeakMap();
+personData.set(person, 'Extra info!');
