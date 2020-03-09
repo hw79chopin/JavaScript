@@ -236,6 +236,71 @@ list.insertAdjacentElement('beforeend', '<p>New Text!</p>')          // 위의 �
 태그이름.style.display= 'red';              // 이런 식으로 DOM의 CSS 명령을 바꿀 수 있음
 
 
+// Array
+const numbers = [1,2,3];    // 가장 심플한 방법
+const moreNumbers = new Array();    /* [] 이렇게 생성됨 */
+const moreNumbers = Array();        /* new를 생략해줘도 된다.   */
+const yetMoreNumbers = Array.of(1,2);     // 이렇게도 생성가능
+const listItems = document.querySelectorAll('li');
+const arraylistItems = Array.from(listItems);           // Array.from은 iterable이나 array-like object를 array로 바꿔준다.
+arrayName.push('');       // array에 element 맨 뒤에 추가하기
+arrayName.unshift('');      // array에 element 맨 앞에 추가하기
+arrayName.pop();          // array 맨 끝에 element 제거하기
+arrayName.shift();        // 맨 처음 element를 제거한다.
+arrayName[인덱스] = '텍스트';   // 인덱스로 element를 replace한다. 인덱스가 arrray length를 넘어가면 empty space들이 만들어진다 -> 거의 안 씀
+arrayName.splice(startIndex, howMany, addElement1, addElement2);       // startIndex부터 howMany에서 주어진 개수만큼 element를 삭제한다. 그 뒤에 addElements를 추가한다.
+arrayName.splice(0);      // array를 다 없앤다. 그리고 없어진 element를 반환하다.
+arrayName.slice();        /* .slice()는 기존 array를 복사해서 새로운 array로 돌려준다. 이를 통해서 기존 array에 element를 건들여도 새로운 array는 영향을 미치지 않게 된다.*/
+newArraya.slice(startIndex, endIndex);      // startIndex에서 endIndex까지 array를 slicing해서 새로운 array로 반환한다.
+newArraya.slice(startIndex);            // endIndex가 없으면 startIndex부터 끝까지 slicing한다.
+const newArray = oldArray.concat([1,2,3]);          // push( )는 array를 한 element로 앞에 넣는다면 concat( )은 array의 element를 각각 뒤에 넣은 새로운 array를 반환한다.
+newArray.indexOf(element);        // element의 첫 번째 index를 반환한다. 못 찾으면 -1을 반환한다.
+newArray.lastIndexOf(element);        // element의 첫 번째 index를 뒤에서부터 찾아서 반환한다. primitive value에는 잘 먹히나 reference value에는 잘 안 먹힌다.
+arrayName.includes();        // primitive value에 적합!
+newArray.forEach((arg1, index, arg2) => {function을쓰자;});         /* for-of loop 대체품! arg1: for loop의 element, index은 index */
+newArray.map();           // map()은 taking an array, run a function하고 element를 바꾼 새로운 array를 반환!! 
+arrayName.sort();         // array를 string으로 바꾸고 sort한다.
+arrayName.reverse();      // 반대로 sort한다.
+arrayName.filter((arg1, index, arg2 ) => {});       // 기존 array에 손대지 않고 새로운 array를 반환한다. arg1은 찾고 있는 value, index는 index, arg2는 original array이고 잘 안 쓴다.
+arrayName.reduce((preValue, curValue, curIndex, originArray) => {
+  return /* 하고 싶은 것을 해용 */;
+}, 0);      // Reduce function은 array내의 values를 합쳐 single value를 만드는 데 정말 유용하다.
+data.split('');         // split 하기! python3랑 syntax가 같음
+data.join('');          // join 시키기! str을 만든다.default로 ,로 구분함.
+const [ newArray1 , newArray2, ...otherInfo ] = oldArray;    // array destructuring!
+
+
+// Set
+const newSet = new Set();      // 이 방법으로만 Set을 만들 수 있음
+const newWeakSet = new WeakSet();
+newSet.has();            // argument가 있는지 없는지 확인. boolean으로 반환
+newSet.add();            // Set에 argument를 추가!
+newSet.entries();        // return iterable. entry는 같은 value가 2번 반복된 array다.
+newSet.delete();         // set에서 삭제하기!
+
+// Map
+const newMap = new Map();
+const newWeakMap = new WeakMap();
+newMap.set();           // 새로운 entry 넣어주기, key, value 형태로 넣어줘야 함!
+newMap.keys();          // key를 얻을 수 있다.
+newMap.values();          // value를 얻을 수 있다.
+newMap.has();           // 특정 key가 map에 있는지 확인
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // 예시모음
@@ -331,3 +396,73 @@ confirmDeletionButton.addEventListener(
   'click',
   deleteMovieHandler.bind(null, movieId)
 );
+
+
+// find 예시
+const manuel = personData.find((person, idx, persons) => {
+    return person.name === 'Manuel';
+  });
+  
+manuel.name = 'Anna';
+console.log(manuel, personData);
+
+// foreach() 예시
+prices.forEach((price, idx, prices) => {
+    const priceObj = { index: idx, taxAdjPrice: price * (1 + tax) };
+    taxAdjustedPrices.push(priceObj);
+  });
+  
+console.log(taxAdjustedPrices);
+
+// foreach() 예시
+let sum = 0;
+
+prices.forEach((price) => {
+  sum += price
+});
+
+console.log(sum);
+
+// map 예시
+const prices = [10.99, 5.99, 3.99, 6.59];
+const tax = 0.19;
+
+const taxAdjustedPrices = prices.map((price, idx, prices) => {
+  const priceObj = { index: idx, taxAdjPrice: price * (1 + tax) };
+  return priceObj;
+});
+
+console.log(prices, taxAdjustedPrices);
+
+// sort 예시
+arrayName.sort((arg1, arg2) => {
+    if (a >b ) {
+      return 1;
+    } else if (a===b) {
+      return 0;
+    } else {
+      return -1;
+    }
+  });         
+  // 함수를 넣어줘도 된다
+
+// filter 예시
+const filteredArray = prices.filter(p => p > 6);
+const numsGreater5 = numbers.filter(val => val > 5);
+
+// reduce 예시
+const sum = prices.reduce((prevValue, curValue) => prevValue + curValue, 0);
+
+// map 예시
+for (const [key, value] of newMap.entries()) {
+    console.log(key, value);
+  }                       // 이렇게 정보를 뽑을 수 있다!
+  
+for (const key of newMap.keys()) {
+    console.log(key);
+  }
+  
+for (const value of newMap.values()) {
+    console.log(value);
+  }
+const mappedNumbers = numbers.map(val => ({ num: val }));
