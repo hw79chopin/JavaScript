@@ -57,7 +57,7 @@ for (const el of array)
     console.log(el);
 }
 
-// for-in loop: Execute for every key in " an object"
+// for-in loop: Execute for every key in "an object"
 for (const key in obj) {
     console.log(key);
     console.log(obj[key]);
@@ -177,8 +177,8 @@ splice()
 addEventListener('', )    // 지정한 이벤트가 대상에 전달될 때마다 호출할 함수를 설정    
 parseInt()      // int로 바꾼다
 parseFloat()      // Float로 바꾼다
-.toUpperCase();     // 대문자로 바꾼다
-.toString()     // number을 str으로 바꾼다
+props.toUpperCase();    // 대문자로 바꾼다
+.toString();     // number을 str으로 바꾼다
 promt('텍스트');        // user input 받기
 isNaN();            // NaN인지 아닌지 설정
 Object.property = '';       // 아직 없는 property를 이렇게 정해줄 수 있음
@@ -234,7 +234,7 @@ list.insertAdjacentElement('beforeend', '<p>New Text!</p>')          // 위의 �
 태그이름.parentElement.removeChild();       // 원하는 child를 remove
 태그이름.style.backgroundColor = 'red'; 
 태그이름.style.display= 'red';              // 이런 식으로 DOM의 CSS 명령을 바꿀 수 있음
-
+document.getElementById('title').value;   // DOM node의 value를 뽑으려면
 
 // Array
 const numbers = [1,2,3];    // 가장 심플한 방법
@@ -286,6 +286,9 @@ newMap.keys();          // key를 얻을 수 있다.
 newMap.values();          // value를 얻을 수 있다.
 newMap.has();           // 특정 key가 map에 있는지 확인
 
+// Object
+person.isAdmin = ''     // 이렇게 property를 추가할수 있다.
+delete person.age;      // 이렇게 property를 없앨 수 있다.
 
 
 
@@ -466,3 +469,10 @@ for (const value of newMap.values()) {
     console.log(value);
   }
 const mappedNumbers = numbers.map(val => ({ num: val }));
+
+// spread operator 예시
+const person3 = {...person, age:29, hobiies:[...person.hobbies]};   // 이렇게 하면 hobbies를 또 지정해주면 기존 object에 영향을 받지 않는다.
+
+// object destructuring
+const { info, ...otherProps } = movie;       //  오른쪽에 object 이름을 놓고 { } 안에는 그 object에서 extract하고 싶은 property를 놓는다.
+const { info: newName } = movie;       // 새로운 이름에 object의 property를 저장하고 싶을 때!
