@@ -1325,3 +1325,256 @@ persons.method();                 // 쓸 수 있는 메소드가 한정됨 (add,
 /* 209. Understanding WeakMap */
 const personData = new WeakMap();
 personData.set(person, 'Extra info!');
+
+
+
+
+
+
+/* 213. What's an Object? */
+// Core data structure in JS
+
+
+
+
+
+/* 216. Adding, Modifying & Deleting Properties */
+person.isAdmin = ''     // 이렇게 property를 추가할수 있다.
+delete person.age;      // 이렇게 property를 없앨 수 있다.
+
+
+
+
+
+
+/* 217. Special Key Names & Square Bracket Property Access */
+/* keys는 무조건 str으로 바뀐다. 
+key name에 띄어쓰기, - 를 쓰고 싶으면 " " 따옴표 내에 넣으면 된다.
+그럼 어떻게 property를 부르나?
+object.property 이 방법으로는 못 부른다.
+object['key name'] 이렇게 부를 수 있다. 따옴표를 꼭 넣어야 한다.*/ 
+
+
+
+
+
+
+/* 218. Property Types & Property Order */
+/* Key value로 숫자를 넣으면 부를 때
+object.property는 못 쓰지만
+object[key] 이렇게 써도 된다!
+object['key'] 이렇게 써도 된다!        */
+
+
+
+
+
+
+/* 219. Dynamic Property Access & Setting Properties Dynamically */
+/* User input 같은 것을 Keyname으로 정해주고 싶으면 */
+const object = {
+  [userInputKeyName] : '..',
+  age: 30
+};
+// [ ]를 사용하면 dynamic하게 property에 접근, 추가할 수 있다.
+
+
+
+
+
+
+/* 220. Demo App & Shorthand Property Syntax */
+// key name과 value name이 같으면 그냥 key name만 써도 된다.
+
+
+
+
+
+
+/* 221. Rendering Elements based on Objects */
+/* Flow
+const.classList에서 'visible' class를 추가해서 display=none을 무력화시켜주고
+.innerHTML = '';로 clear 해주고
+document.createElement('')해서 <li> element를 만들어주고
+const.append()를 통해서 만들어준 element에 object를 추가해주자 */
+
+
+
+
+
+
+/* 222. for-in Loops & Outputting Dynamic Properties */
+/* Key-value combination을 어떻게 render할 것이냐  */
+  movies.forEach((movie) => {
+    const movieEl = document.createElement('li');
+    let text = movie.info.title + ' - ';
+    for (const key in movie.info) {
+      if (key !== 'title') {
+        text = text + `${key}: ${movie.info[key]}`;   // 이렇게 할 수 있다.
+      }
+    }
+    movieEl.textContent = text;
+    movieList.append(movieEl);
+  });
+
+
+
+
+
+
+/* 223. Adding the Filter Functionality */
+// .filter( ): array의 모든 element에 대해서 function을 실행시킴 
+const renderMovies = (filter = '') => {
+const filteredMovies = !filter
+? movies
+: movies.filter(movie => movie.info.title.includes(filter));
+};
+
+
+
+
+
+
+/* 224. Understanding "Chaining" (Property & Method Chaining) */
+// multiple .(dot)을 사용하는 것
+
+
+
+
+
+/* 225. The Object Spread Operator (...) */
+////////////////////////////////// spread operator를 사용하면 address를 공유해서 기존 object의 property value가 바뀔 때 같이 바뀌는 것을 막을 수 있다./////////////////////////////////
+// copy를 만드는 거다!!!
+// 근데 spread operator를 사용해도 속에 array가 있으면 그것은 똑같이 address를 공유하기 때문에 기존 object value 변경에 따라 바뀐다. 
+const person3 = {...person, age:29, hobiies:[...person.hobbies]};   // 이렇게 하면 hobbies를 또 지정해주면 기존 object에 영향을 받지 않는다.
+
+
+
+
+
+
+/* 226. Understanding Object.assign() */
+Object.assign();          // target을 입력하고 overwrite하고 싶은 property를 입력하면 된다.
+
+
+
+
+
+
+/* 227. Object Destructuring */
+// key-value pair를 빼서 다른 variable에 저장!
+const { info, ...otherProps } = movie;       //  오른쪽에 object 이름을 놓고 { } 안에는 그 object에서 extract하고 싶은 property를 놓는다.
+const { info: newName } = movie;       // 새로운 이름에 object의 property를 저장하고 싶을 때!
+
+
+
+
+
+
+/* 228. Checking for Property Existance */
+if ('property' in objectName) {
+
+};       // object에 property 확인할 떄~ in operator하기!
+if (movie.propName === undefined) { };       // 이렇게 할 수도 있다.
+
+
+
+
+
+
+/* 229. Introducing "this" */
+props.toUpperCase();
+//////////////////////////////////// object 내에서는 arrow function을 쓰면 안 된다!///////////////////////////////
+//////////////////////////////////// arrow function을 쓰면 this는 global variable을 가져옴!///////////////////////////////
+const newMovie = {
+  info: title,
+  id: Math.random().toString(),
+  getFormattedTitle: function () {
+    return this.info.dtitle.toUpperCase();
+  }
+};
+this      // this는 함수를 호출하는 객체를 의미!
+
+
+
+
+
+
+/* 230. The Method Shorthand Syntax */
+// 그냥
+functionname() {
+  return this.info.title  
+};     // 이렇게 object내의 method를 지정해줄 수도 있다.
+
+
+
+
+
+
+/* 231. The "this" Keyword And Its Strange Behavior */
+// method를 부르는 객체가 없으면 undefined되는 문제가 있다. 객체가 없으면 window가 객체로 나온다.
+// bind( )를 쓰면 해결할 수 있다!
+let { getFormattedTitle } = movie;
+getFormattedTitle = getFormattedTitle.bind(movie);
+let text = getFormattedTitle() + ' - '; 
+// 이렇게 하면 된다!
+
+
+
+
+
+/* 232. call() and apply() */
+methodName.call(objectName);        // bind( ) 대신 쓸 수 있는 것! arguments를 많이 넣을 수 있다.
+methodName.apply(objectName);       // 총 2개의 arguments를 가진다. 두 번째 argument는 array여야 한다!
+
+
+
+
+
+
+/* 233. What the Browser (Sometimes) Does to "this" */
+// 일반 function () {}은 함수의 this는 그 함수를 trigger한 DOM element다.
+
+
+
+
+
+
+/* 234. "this" and Arrow Functions */
+// arrow function은 this를 모른다. arrow function can fix strange this behavior
+// function keyworkd로 function을 만들면 this가 function 내에 머물기 때문에 object의 다른 property를 부를 수가 없다.
+
+
+
+
+
+
+
+/* 236. Getters & Setters */
+// getter는 object 내 property가 호출되었을 때 쓰이는 함수고
+// setter는 맨 처음에 지정해줄 때 사용되는 함수다. set은 val argument가 필요하다.
+// read-only property를 만들거나, extra validation을 하거나, default transformation을 할 때 사용가능하다.
+// 예시
+const newMovie = {
+  info: {
+    set title(val) {
+      if (val.trim() === '') {
+        this._title = 'DEFAULT';
+        return;
+      }
+      this._title = val;
+    },
+    get title() {
+      return this._title;
+    },
+    [extraName]: extraValue
+  },
+  id: Math.random().toString(),
+  getFormattedTitle() {
+    console.log(this);
+    return this.info.title.toUpperCase();
+  }
+};
+
+newMovie.info.title = title;
+console.log(newMovie.info.title);
