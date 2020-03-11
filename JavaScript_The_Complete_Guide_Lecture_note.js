@@ -1578,3 +1578,69 @@ const newMovie = {
 
 newMovie.info.title = title;
 console.log(newMovie.info.title);
+
+
+
+
+
+
+/* 242. Defining & Using a First Class */
+class Product{} // class 생성은 앞글자 대문자가 국룰
+new Product() // class 부르려면 이렇게 한다
+
+
+
+
+
+
+/* 243. Working with Constructor Methods */
+// class의 새로운 instance를 만들 때마다 consturctor( )가 실행된다.
+class Product {
+constructor() 
+}
+// constructor에서 이름을 다 지정해주기 때문에 mistype 문제가 줄어든다.
+
+
+
+
+
+
+/* 245. Using & "Connecting" Multiple Classes */
+// class의 순서는 중요하지 않다.
+ 
+
+
+
+
+
+/* 246. Binding Class Methods & Working with "this" */
+// 와우 이제부터 뭔가 어려워지는군
+
+
+
+
+
+
+/* 249. Static Methods & Properties */
+/* 
+# Static Field / Property / Method
+ - Defined with static keyword *
+ - Only accessible on class itself 
+ - 같은 data를 기반으로 작동
+
+# Instance Field / Property / Method
+ - Only accessible on instances based on class 
+ - 클래스의 인스턴스 없이 호출이 가능하다! 대신 인스턴스에서는 호출 할 수 없다!
+ - 같은 구조를 가지지만 data가 다른 것을 생성할 때 사용
+ - 클래스 자체에 할당되었기 때문에 클래스의 인스턴스를 통해서는 호출될 수 없으며 클래스를 통해 호출해야 한다.
+ - good idea if you want to share some functionality across different parts of your application  */
+
+
+
+
+
+
+/* 253. Implementing Inheritance */
+class ShoppingCart extends Component    // 이런식으로 Component 클래스를 상속 받을 수 있다.
+// 상속 받는 클래스는 constructor가 없어도 된다. 
+super  // 를 사용하면 parent class의 constructor를 부른다!
