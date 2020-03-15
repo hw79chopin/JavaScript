@@ -25,6 +25,7 @@ if(a % 2 == 0) {
 }
 
 // else if example
+
 if (조건1) {
     document.write();
 } else if (조건 2) {
@@ -289,6 +290,16 @@ newMap.has();           // 특정 key가 map에 있는지 확인
 // Object
 person.isAdmin = ''     // 이렇게 property를 추가할수 있다.
 delete person.age;      // 이렇게 property를 없앨 수 있다.
+objecteName instanceof ClassName      // True이면 object가 Class에서 나온 거!
+Object.getOwnPropertyDescriptor();    // metadata를 보여준다. 나아가 할 수 있는 것들을 보여준다.
+Object.defineProperty(person, 'name', {
+  configurable: true,
+  enumerable: true,
+  value: person.name,
+  writable: false
+});              // property를 이렇게 지정해줄 수도 있다. Lock 할 수 있다.
+
+
 
 
 
