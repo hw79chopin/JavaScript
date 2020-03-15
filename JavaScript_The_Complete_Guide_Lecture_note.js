@@ -1599,6 +1599,7 @@ class Product {
 constructor() 
 }
 // constructor에서 이름을 다 지정해주기 때문에 mistype 문제가 줄어든다.
+// object이 만들어졌을 때 바로 실행할 logic을 constructor로 지정해준다!
 
 
 
@@ -1621,8 +1622,7 @@ constructor()
 
 
 
-/* 249. Static Methods & Properties */
-/* 
+/* 249. Static Methods & Properties
 # Static Field / Property / Method
  - Defined with static keyword *
  - Only accessible on class itself 
@@ -1644,3 +1644,73 @@ constructor()
 class ShoppingCart extends Component    // 이런식으로 Component 클래스를 상속 받을 수 있다.
 // 상속 받는 클래스는 constructor가 없어도 된다. 
 super  // 를 사용하면 parent class의 constructor를 부른다!
+
+
+
+
+
+
+/* 256. super() Constructor Execution, Order & "this" */
+// 뭔 개소리야
+
+
+
+
+
+
+/* 258. Private Properties */
+// #을 붙이면 private property로 바꾼다.
+// 언제 private property를 쓰면 좋은가?
+// Should be used internally only할 때! (e.g loggedInUsers inside of Auth class)
+
+
+
+
+
+
+/* 260. The "instanceof" Operator */
+objecteName instanceof ClassName      // True이면 object가 Class에서 나온 거!
+
+
+
+
+
+
+/* 261. Built-in Classes */
+new Object();
+new Array();
+[]      // 이것을 더 많이 선호하기는 함
+
+
+
+
+
+
+/* 262. Understanding Object Descriptors */
+Object.getOwnPropertyDescriptor();    // metadata를 보여준다. 나아가 할 수 있는 것들을 보여준다.
+Object.defineProperty(person, 'name', {
+  configurable: true,
+  enumerable: true,
+  value: person.name,
+  writable: false
+});              // property를 이렇게 지정해줄 수도 있다. Lock 할 수 있다.
+
+
+
+
+
+/* Quiz */
+// "Fields" are in the end simply translated to properties you would otherwise set up in the constructor method.
+
+
+
+
+
+
+/* Wrap up */
+/* Object, OOP
+What is Classes -> New 키워드로 class 생성!
+constructor
+inheritance
+
+*/
