@@ -203,6 +203,25 @@ document.getElementsByClassName(CSSClass);
 document.getElementsByTagName(HTMLTAG);
 h1.setAttribute('value', 'some other default text')
 
+// browser API
+setTimeout(func, 3000);            /* 첫 번째 argument: timer가 끝나면 실행될 함수, 두 번재 argument: 시간, ms단위*/
+setInterval(func, 2000);           /* 주기적으로 함수를 실행 */
+clearInterval();              /* Interval 멈추기 */
+clearTimeout();               /* 타이머 멈추기 */
+location.href = "www."          // 새로운 사이트로 접속
+location.replace('')            // 다른 사이트로 바꿈
+history.back()                  // 뒤로 돌아감
+history.forward()               // 앞으로 감
+history.length                  // 유저가 얼마나 많은 step을 이 탭에서 했는지 보여줌
+navigator          // browser과 operating system이 상호작용할 수 있게 해줌
+navigator.userAgent         // 유저가 쓰는 browser를 알 수 있음
+navigator.geolocation.getCurrentPosition()      // 유저의 위치를 알 수 있음
+new Date()        // 현재 시간과 timestamp를 반환
+.getDate()
+.getDay()
+.getTime()
+
+
 // DOM
 .classList.contains();     // class가 있는지 없는지 확인
 .classList.add()            // class 추가
@@ -487,3 +506,6 @@ const person3 = {...person, age:29, hobiies:[...person.hobbies]};   // 이렇게
 // object destructuring
 const { info, ...otherProps } = movie;       //  오른쪽에 object 이름을 놓고 { } 안에는 그 object에서 extract하고 싶은 property를 놓는다.
 const { info: newName } = movie;       // 새로운 이름에 object의 property를 저장하고 싶을 때!
+
+// scroll
+element.scrollIntoView({behavior: 'smooth'});        // 해당 element로 scroll해주는 개꿀 method. 애니메이션도 넣을 수 있음
