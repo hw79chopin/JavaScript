@@ -1662,6 +1662,8 @@ super  // 를 사용하면 parent class의 constructor를 부른다!
 // #을 붙이면 private property로 바꾼다.
 // 언제 private property를 쓰면 좋은가?
 // Should be used internally only할 때! (e.g loggedInUsers inside of Auth class)
+// class 안에서만 쓸 수 있는 property 이름이다~
+// private property를 지정하려면 우선 field를 지정해야 한다.
 
 
 
@@ -1713,4 +1715,173 @@ What is Classes -> New 키워드로 class 생성!
 constructor
 inheritance
 
-*/
+
+
+
+
+
+/* 267. Constructor Functions vs Classes & Understanding "new"  */
+class Person {
+    name = 'Hyun';
+    constructor() {
+        this.age = 30;                  // 이렇게 constructor를 지정하는 게 
+    }
+    greet() {   
+        console.log( 'Hi' )
+    }
+}
+
+function Person {
+    this.age = 30;
+    this.name = 'Hyun'                 // 이렇게 object 생성하는거랑 같으뮤!
+    this.greet = function() {
+        console.log('Hi')
+    }
+}
+
+const person = new Person();          // new keyword로 constructor function을 부른다
+
+
+
+
+
+
+
+/* 268. Introducing Prototypes */
+// 정의하지 않은 method들을 불르면 __proto__에 있는 method인지 확인
+// base class로 계속 들어간다.
+// prototype은 function object에만 존재한다.
+
+
+
+
+
+
+/* 273. Methods in Classes & In Constructors */
+// object내 method를 공유한다. address가 같다!
+
+
+
+
+
+
+/* 275. Setting & Getting Prototypes */
+const student = Object.create({
+  printProgress: function() {
+    console.log(this.progress);
+  }
+});      // 이렇게 object를 만들 수도 있음
+student.name = 'Hyn';
+Object.defineProperty(student, 'age', {
+  value = 26
+});         // 이렇게 property를 만들 수도 있음.
+
+
+
+
+
+/* 289. Using "dataset" (data-* Attributes) */
+// HTML에서 data- 이렇게 쓰여져 있는 애들은 다 'dataset' property에 저장된다.
+
+
+
+
+
+
+/* 291. Working with Element Sizes & Positions */
+$0.getBoundingClientRect()    // console에 입력하면 DOM Rect를 볼 수 있음
+document.documentElement.clientHeight
+document.documentElement.clientWidth    // 가장 실용적인 높이, 너비를 알려줌 
+
+
+
+
+
+
+/* 293. Positioning the Tooltip */
+// 새로운 팝업창?을 띄울 때 위치를 고려해서 띄워줄 수 있는데 그때 scroll한 거리도 고려해줘야 한다.
+
+
+
+
+
+
+/* 294. Handling Scrolling */
+element.scrollIntoView({behavior: 'smooth'});        // 해당 element로 scroll해주는 개꿀 method. 애니메이션도 넣을 수 있음
+
+
+
+
+
+
+/* 295. Working with <template> Tags */
+// <template>: 바로 render하지는 않지만 JS에 의해서 render가 될 tag!
+const tooltipTemplate = document.getElementById('tooltip');
+const tooltipBody = document.importNode(tooltipTemplate.contentEditable, true);
+tooltipBody.querySelector('p').textContetn = this.text;
+tooltipElement.append(tooltipBody);
+// 요로로콤 사용할 수 있다.
+
+
+
+
+
+
+/* 296. Loading Scripts Dynamically */
+//.createElement('script')로 dynamic하게 script를 생성할 수 있다.
+// JS 파일을 부를 때 defer의 의미: 모든 HTML parsing이 끝난 다음에 부른다는 것!
+
+
+
+
+
+
+/* 297. Setting Timers & Intervals */
+setTimeout(func, 3000);            /* 첫 번째 argument: timer가 끝나면 실행될 함수
+                                      두 번재 argument: 시간, ms단위*/
+setInterval(func, 2000);           /* 주기적으로 함수를 실행 */
+clearInterval();              /* Interval 멈추기 */
+clearTimeout();               /* 타이머 멈추기 */  
+
+
+
+
+
+
+/* 298. The "location" and "history" Objects */
+location.href = "www."          // 새로운 사이트로 접속
+location.replace('')            // 다른 사이트로 바꿈
+history.back()                  // 뒤로 돌아감
+history.forward()               // 앞으로 감
+history.length                  // 유저가 얼마나 많은 step을 이 탭에서 했는지 보여줌
+
+
+
+
+
+
+/* 299. The "navigator" Object */
+navigator          // browser과 operating system이 상호작용할 수 있게 해줌
+navigator.userAgent         // 유저가 쓰는 browser를 알 수 있음
+navigator.geolocation.getCurrentPosition()      // 유저의 위치를 알 수 있음
+
+
+
+
+
+
+
+/* 300. Working with Dates */
+new Date()        // 현재 시간과 timestamp를 반환
+.getDate()
+.getDay()
+.getTime()
+
+
+
+
+
+
+/* 301. The "Error" Object & Constructor Function */
+throw new Error('Sth went wrong!')      // custom error handling하는데 중요!어디서 error가 발생했는지도 보여준다. 
+console.dir()           // full access to whatever in that parenthesis
