@@ -851,7 +851,7 @@ liFirst.closest('header')
  - documnet.querySelector와 같은 방법
 
 # Dom Traversal
- - document.body.firstElementChile와 같은 방법 */
+ - document.body.firstElementChild와 같은 방법 */
 
 
 
@@ -869,7 +869,7 @@ const button = document.querySelector('button');
 button.addEventListener('click', () => {
   ~~~
 })
-section.classList.contains();     // class가 있는지 없는지 확인
+section.classList.contains();     // ** class가 있는지 없는지 확인
 section.classList.add()         // class 추가
 section.classList.remove()         // class 제거
 section.classList.toggle()         // class 껏다 키기
@@ -1119,10 +1119,10 @@ arrayName.splice(0);      // array를 다 없앤다. 그리고 없어진 element
 
 
 /* 189. Selecting Ranges & Creating Copies with slice() */
-const newArray = arrayName.slice();        /* .slice()는 기존 array를 복사해서 새로운 array로 돌려준다.
+const newArray = arrayName.slice();        /* **.slice()는 기존 array를 복사해서 새로운 array로 돌려준다.
                                                이를 통해서 기존 array에 element를 건들여도 새로운 array는 영향을 미치지 않게 된다.*/
-newArraya.slice(startIndex, endIndex);      // startIndex에서 endIndex까지 array를 slicing해서 새로운 array로 반환한다.
-newArraya.slice(startIndex);            // endIndex가 없으면 startIndex부터 끝까지 slicing한다.
+newArray.slice(startIndex, endIndex);      // startIndex에서 endIndex까지 array를 slicing해서 새로운 array로 반환한다.
+newArray.slice(startIndex);            // endIndex가 없으면 startIndex부터 끝까지 slicing한다.
 
 
 
@@ -1155,6 +1155,7 @@ arrayName.find((arguemnt1, arg2, arg3) => {});       /* argument에 function이 
                                    함수를 arrayName의 모든 element에 적용
                                    find는 copy를 만들지는 않는다 */
 arrayName.findIndex();          // matching element의 index를 반환한다.
+
 // 예시
 const manuel = personData.find((person, idx, persons) => {
   return person.name === 'Manuel';
@@ -1168,8 +1169,12 @@ console.log(manuel, personData);
 
 
 
+
+
 /* 193. Is it Included? */
 arrayName.includes();        // primitive value에 적합!
+
+
 
 
 
@@ -1201,8 +1206,9 @@ arrayName.reverse();      // 반대로 sort한다.
 
 
 
+
 /* 197. Filtering Arrays with filter() */
-arrayName.filter((arg1, index, arg2 ) => {});       // 기존 array에 손대지 않고 새로운 array를 반환한다. arg1은 찾고 있는 value, index는 index, arg2는 original array이고 잘 안 쓴다.
+arrayName.filter((arg1, index, arg2 ) => {});       // **기존 array에 손대지 않고 새로운 array를 반환한다. arg1은 찾고 있는 value, index는 index, arg2는 original array이고 잘 안 쓴다.
 
 
 
@@ -1273,7 +1279,7 @@ newSet.delete();         // set에서 삭제하기!
 
 
 
-/* 206. Working with Maps */
+/* 206. **Working with Maps */
 const newMap = new Map();         // key, value 형태로 넣어줘야 함! Key has to be an object.
 const newMap = new Map([[person1, [{date: 'yesterday', price:10}]]]);
 newMap.set();           // 새로운 entry 넣어주기, key, value 형태로 넣어줘야 함!
@@ -1332,7 +1338,7 @@ personData.set(person, 'Extra info!');
 
 
 /* 213. What's an Object? */
-// Core data structure in JS
+// **Object: Core data structure in JS
 
 
 
@@ -1340,7 +1346,8 @@ personData.set(person, 'Extra info!');
 
 /* 216. Adding, Modifying & Deleting Properties */
 person.isAdmin = ''     // 이렇게 property를 추가할수 있다.
-delete person.age;      // 이렇게 property를 없앨 수 있다.
+delete person.age;      // **이렇게 property를 없앨 수 있다.
+
 
 
 
@@ -1443,10 +1450,10 @@ const filteredMovies = !filter
 
 
 /* 225. The Object Spread Operator (...) */
-////////////////////////////////// spread operator를 사용하면 address를 공유해서 기존 object의 property value가 바뀔 때 같이 바뀌는 것을 막을 수 있다./////////////////////////////////
+/* **spread operator를 사용하면 address를 공유해서 기존 object의 property value가 바뀔 때 같이 바뀌는 것을 막을 수 있다. */
 // copy를 만드는 거다!!!
 // 근데 spread operator를 사용해도 속에 array가 있으면 그것은 똑같이 address를 공유하기 때문에 기존 object value 변경에 따라 바뀐다. 
-const person3 = {...person, age:29, hobiies:[...person.hobbies]};   // 이렇게 하면 hobbies를 또 지정해주면 기존 object에 영향을 받지 않는다.
+const person3 = {...person, age:29, hobbies:[...person.hobbies]};   // **이렇게 하면 hobbies를 또 지정해주면 기존 object에 영향을 받지 않는다.
 
 
 
@@ -1484,8 +1491,8 @@ if (movie.propName === undefined) { };       // 이렇게 할 수도 있다.
 
 /* 229. Introducing "this" */
 props.toUpperCase();
-//////////////////////////////////// object 내에서는 arrow function을 쓰면 안 된다!///////////////////////////////
-//////////////////////////////////// arrow function을 쓰면 this는 global variable을 가져옴!///////////////////////////////
+/* **object 내에서는 arrow function을 쓰면 안 된다 */
+/* **arrow function을 쓰면 this는 global variable을 가져옴! */
 const newMovie = {
   info: title,
   id: Math.random().toString(),
@@ -1551,8 +1558,8 @@ methodName.apply(objectName);       // 총 2개의 arguments를 가진다. 두 �
 
 
 /* 236. Getters & Setters */
-// getter는 object 내 property가 호출되었을 때 쓰이는 함수고
 // setter는 맨 처음에 지정해줄 때 사용되는 함수다. set은 val argument가 필요하다.
+// getter는 object 내 property가 호출되었을 때 쓰이는 함수고
 // read-only property를 만들거나, extra validation을 하거나, default transformation을 할 때 사용가능하다.
 // 예시
 const newMovie = {
@@ -1569,7 +1576,9 @@ const newMovie = {
     },
     [extraName]: extraValue
   },
+
   id: Math.random().toString(),
+
   getFormattedTitle() {
     console.log(this);
     return this.info.title.toUpperCase();
@@ -1643,7 +1652,7 @@ constructor()
 /* 253. Implementing Inheritance */
 class ShoppingCart extends Component    // 이런식으로 Component 클래스를 상속 받을 수 있다.
 // 상속 받는 클래스는 constructor가 없어도 된다. 
-super  // 를 사용하면 parent class의 constructor를 부른다!
+super();  // 를 사용하면 parent class의 constructor를 부른다!
 
 
 
@@ -1818,7 +1827,7 @@ element.scrollIntoView({behavior: 'smooth'});        // 해당 element로 scroll
 // <template>: 바로 render하지는 않지만 JS에 의해서 render가 될 tag!
 const tooltipTemplate = document.getElementById('tooltip');
 const tooltipBody = document.importNode(tooltipTemplate.contentEditable, true);
-tooltipBody.querySelector('p').textContetn = this.text;
+tooltipBody.querySelector('p').textContent = this.text;
 tooltipElement.append(tooltipBody);
 // 요로로콤 사용할 수 있다.
 
@@ -1829,7 +1838,7 @@ tooltipElement.append(tooltipBody);
 
 /* 296. Loading Scripts Dynamically */
 //.createElement('script')로 dynamic하게 script를 생성할 수 있다.
-// JS 파일을 부를 때 defer의 의미: 모든 HTML parsing이 끝난 다음에 부른다는 것!
+// **JS 파일을 부를 때 defer의 의미: 모든 HTML parsing이 끝난 다음에 부른다는 것!
 
 
 
@@ -1885,3 +1894,239 @@ new Date()        // 현재 시간과 timestamp를 반환
 /* 301. The "Error" Object & Constructor Function */
 throw new Error('Sth went wrong!')      // custom error handling하는데 중요!어디서 error가 발생했는지도 보여준다. 
 console.dir()           // full access to whatever in that parenthesis
+
+
+
+
+
+
+/* 306. Different Ways of Listening to Events */
+onclick       // 이것을 통해서 click 이벤트를 다룰 수 있음. 단 하나의 함수만 가능하다! override old listener
+addEventListener()
+removeEventListener()         // 얘네가 제일 편함
+
+
+
+
+
+/* 307. Removing Event Listener */
+// const에 저장하지 않고 anonymous function을 사용하면 같은 함수로 생각하지 않는다.
+// 정확하게 같은 address에 있는 함수들을 넣어주어야 한다.
+
+
+
+
+
+/* 308. The "event" Object */
+//event target은 우리가 클릭하는 element에 direct access를 준다.
+
+
+
+
+
+
+/* 309. Supported Event Types*/
+window.addEventListener('mouseenter')   // 마우스가 위에 올려졌을 때 작동 및 반응
+window.addEventListener('scroll')       // scroll할 때 반응
+
+
+
+
+
+
+/* 311. Working with "preventDefault()" */
+// submit 버튼을 누르면 서버로 데이터를 부르느라 새로고침이 된다
+const form = document.querySelector('form');
+
+form.addEventListener('submit', event => {
+  event.preventDefault();   // default를 멈추고
+  console.log(event)        // 내가 하고 싶은 logic을 입력!
+})
+
+
+
+
+
+
+/* 312. Understanding "Capturing" & "Bubbling" Phase */
+/*
+bubbling: inside to outside
+capturing: outside to inside          */
+
+
+
+
+
+
+
+/* 313. Event Propagation & "stopPropagation()" */
+// propagation: 이벤트가 element 뿐만 아니라 그 조상들의 이벤트도 듣게 된다는 것.
+// 예를 들면 <div> 내 <button>을 눌렀을 때 <div>의 eventListener도 trigger하게 되는 것
+event.stopPropagation();      // propagation 멈추기
+
+
+
+
+
+
+/* 314. Using Event Delegation */
+// 해당 lowest element가 선택되는 문제를 가지고 있다.
+event.target.closest('이름');     // 이렇게 하면 위에 문제 해결!
+
+
+
+
+
+
+/* 315. Triggering DOM Elements Programmatically */
+button.click();
+form.submit();  // 이렇게 event를 trigger할 수 있다.
+
+
+
+
+
+
+/* 318. Configuring Draggable Elements */
+/*
+1st) 우선! HTML에 attribute에 draggable = "true"를 놔야 한다.
+2nd) dragstart event 설정 */
+connectDrag() {
+  document.getElementById(this.id).addEventListener('dragstart', event => {
+    event.dataTransfer.setData('text/plain', this.id);
+    event.dataTransfer.effectAllowed = 'move';
+  });
+}       // 코드는 요로로콤
+
+
+
+
+
+
+
+/* 320. Dropping & Moving Data + Elements */
+list.addEventListener('dragenter', event => {});
+list.addEventListener('dragover', event => {});
+list.addEventListener('dragleave', event => {});
+list.addEventListener('drop', event => {});
+list.addEventListener('dropend', event => {});
+
+
+
+
+
+
+
+/* 325. Pure Functions & Side-Effects */
+/* Pure functions, side effect
+factory functions
+Closure & Scope Revisited
+Recursion
+# pure function: 어떤 input이든 같은 output을 낸다.
+# impure function: 같은 input이에도 다른 output을 낸다. 혹은 side-effect를 낸다. e.g addRandom 
+
+
+
+
+
+
+/* 326. Impure vs Pure Functions */
+// side effects가 없는 pure function을 사용하는게 좋다! 왜냐? 예측가능하니까
+// side effect란? A function interacts with something outside of the function or does something that's not directly related to its internal calculation.
+
+
+
+
+
+
+/* 327. Factory Functions */
+// factory function: 다른 함수를 생성하는 함수
+// 밖에서 지정한 parameter를 안에서 정의한 함수 내에서 사용가능하다.
+// 코드와 시간을 줄일 수 있다.
+
+
+
+
+
+
+/* 328. Closure */
+// outter function은 inner function의 변수와 parameter를 쓰지 못한다.
+// 변수 let 설정 -> 함수 정의 -> let 변경 -> 함수 실행: 이렇게 하면 변경된 let이 함수에서 사용된다.
+
+
+
+
+
+
+/* 329. Closures in Practice */
+// shadowing(글로벌 변수 이름과 같은 변수를 함수 내에서 사용하는 것)을 사용하면 함수 내에서 정의한 대로 그대로 사용할 수 있다.
+// 함수는 주변의 변수를 계속 기억한다.
+
+
+
+
+
+
+/* 332. Introducing "Recursion" */
+for (let i=0; i <n; i++) {}; // for i in range(n)을 쓰는 방법인 듯!
+
+function powerOf(x, n) {
+  return n===1 ? x : x * powerOf(x, n-1);
+  // n이 1이면? x를 주고 : 아니면 x * powerOf(x,n-1)을 실행해라!
+}                             // call ourself 
+
+
+
+
+
+
+/* 333. Advanced Recursion */
+// for loop에서 하지 못한 것들을 할 수 있다. 얼마나 많은 level의 nesting이 필요할지 모를 때
+function getFriendNames(person) {
+  const collectedNames = [];
+
+  if (!person.friends) {
+    return [];
+  }
+
+  for (const friend of person.friends) {
+    collectedNames.push(friend.name);
+    collectedNames.push(...getFriendNames(friend));
+  }
+  return collectedNames;
+}
+
+
+
+
+
+
+
+
+/* 번외: Factory function */
+function createCircle(radius){
+  return {
+      radius = radius,
+      draw : function(){
+      	console.log('draw')
+      }
+  };
+}
+// 객체 만들기  
+const circle = createCircle(1);
+
+
+
+/* Constructor function */
+function Circle(radius){
+  this.radius = radius;
+   this.draw = function(){
+     console.log('draw');
+   }
+ }
+const another = new Circle(1);
+
+/* constructor function 특징
+무조건 대문자로 생성해야 함
+this operator를 사용함
+new operator를 통해 object를 불러올 수 있음 */
