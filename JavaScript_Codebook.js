@@ -319,8 +319,12 @@ Object.defineProperty(person, 'name', {
 });              // property를 이렇게 지정해줄 수도 있다. Lock 할 수 있다.
 
 
-
-
+// event
+window.addEventListener('mouseenter')   // 마우스가 위에 올려졌을 때 작동 및 반응
+window.addEventListener('scroll')       // scroll할 때 반응
+event.stopPropagation();      // propagation 멈추기
+button.click();
+form.submit();  // 이렇게 event를 trigger할 수 있다.
 
 
 
@@ -509,3 +513,32 @@ const { info: newName } = movie;       // 새로운 이름에 object의 property
 
 // scroll
 element.scrollIntoView({behavior: 'smooth'});        // 해당 element로 scroll해주는 개꿀 method. 애니메이션도 넣을 수 있음
+
+// event
+const form = document.querySelector('form');
+
+form.addEventListener('submit', event => {
+  event.preventDefault();   // default를 멈추고
+  console.log(event)        // 내가 하고 싶은 logic을 입력!
+})
+
+// recursion
+function powerOf(x, n) {
+  return n===1 ? x : x * powerOf(x, n-1);
+  // n이 1이면? x를 주고 : 아니면 x * powerOf(x,n-1)을 실행해라!
+}                             // call ourself 
+
+// advanced recursion
+function getFriendNames(person) {
+  const collectedNames = [];
+
+  if (!person.friends) {
+    return [];
+  }
+
+  for (const friend of person.friends) {
+    collectedNames.push(friend.name);
+    collectedNames.push(...getFriendNames(friend));
+  }
+  return collectedNames;
+}
