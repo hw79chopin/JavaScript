@@ -2130,3 +2130,374 @@ const another = new Circle(1);
 무조건 대문자로 생성해야 함
 this operator를 사용함
 new operator를 통해 object를 불러올 수 있음 */
+
+
+
+
+
+
+
+/* 338. Floating Point (Im)Precision */
+// decimal system & binary system
+// JS에는 모든 숫자는 float이다.
+
+
+
+
+
+
+/* 339. The BigInt Type */
+// BigInt는 매우 큰 숫자를 다룰 때 유용하다. 
+
+
+
+
+
+
+/* 341. Example: Generate Random Number Between Min/ Max */
+function randomIntBetween(min, max) {
+  return Math.floor(Math.random() * (max - min) + min) ;
+}
+
+
+
+
+
+
+/* 343. Tagged Templates */
+`` //에 ${} 넣는거!
+function productDescription(strings, productName, productPrice) {
+  let priceCategory = 'pretty cheap regarding its price';
+  if (productPrice > 20) {
+    priceCategory = 'fairly priced';
+  }
+  return {name: productName, price: productPrice};
+}
+
+const prodName = 'JavaScript Course';
+const prodPrice = 29.99;
+
+const productOutput = productDescription`This product (${prodName}) is ${prodPrice}.`;
+console.log(productOutput);
+// string input으로 뭔가 바꿀 때 유용하다! 위 예시는 str을 object로 바꾼다!
+
+
+
+
+
+
+/* 344. Introducing Regular Expressions ("RegEx") */
+new RegExp('')        // 이렇게 해도 되고
+regex = /^\S+@\S+\.\S+$/            // 여기에 패턴을 만들어도 된다. 이메일 패턴 찾아내기
+
+
+
+
+
+
+
+/* 349. Understanding Synchronous Code Execution ("Sync Code") */
+// JS is Single-Thread -> 순서가 보장된다.
+
+
+
+
+
+
+
+/* 350. Understanding Asynchronous Code Execution ("Async Code") */
+/* 좀 오래 걸리는 것들을 하느라 다른 코드의 실행을 방해할 수 있다.
+Asynchronous Code: 이게 해결책임 
+좀 오래 걸리는 애들은 browser가 할 수 있게 빼두고 코드가 계속 진행된다.
+addEventListener도 실행시키면 사용자가 click할 때까지 기다리는 게 아니라 browser가 한 곳으로 빼두는 것*/ 
+
+
+
+
+
+
+/* 351. Blocking Code & The "Event Loop"
+event loop: async code와 callback function을 다루는 것을 도와준다. 
+            call stack이 빌 때까지 기다렸다가 비면 메세지나 call-back function을 Stack으로 불러온다.*/
+
+
+
+
+
+
+
+/* 352. Sync + Async Code - The Execution  */
+navigator.geolocation.getCurrentPosition();   // 현재 위치를 가져올 수 있음.
+
+
+
+
+
+
+/* 353. Multiple Callbacks & setTimeout(0) */
+// promises: .then()을 사용해 가독성을 높인다!
+// promise는 주로 서버에서 받아온 데이터를 화면에 표시할 때 사용합니다. 
+new Promise();  /* 이렇게 promise 생성. 2가지 arguments를 받는다.
+                   모두 다 function이다. resolve & reject function! 
+                   resolve function은 browser에서 온다. */
+.then();        /* promise가 해결되면 바로 실행이 된다. */
+
+
+
+
+
+
+/* 355. Chaining Multiple Promises */
+const getPosition = opts => {
+  const promise = new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(success => {
+        resolve(success);
+      },error => {}, opts);
+  });             // getCurrentPosition에서 얻는 데이터를 promise로 보내고! .then()을 사용하면 그 데이터를 얻는 것!
+  return promise;};
+
+// chaining은 요로로콤
+function trackUserHandler() {
+  let positionData;
+  getPosition()
+    .then(posData => {
+      positionData = posData;
+      return setTimer(2000);      // 여기서 받은 데이터를 바탕으로
+    })
+    .then(data => {               // 다음 promise를 진행시킨다!
+      console.log(data, positionData);
+    });
+  setTimer(1000).then(() => {
+    console.log('Timer done!');
+  });
+  console.log('Getting position...');
+}
+
+
+
+
+
+
+/* 356. Promise Error Handling */
+Promise((resolve, reject) => {})             // 여기서 reject는 promise를 실패라고 규정함.
+Promise().then(firstArg, secondArg);         /* first argument: promise가 해결됐을 때 진행할 callback function! 
+                                                second argument: potential error function we might have */
+Promise().catch()                            /* promise에 사용할 수 있음! .then()의 second argument 대신 error를 잡을 수 있는 다른 방안!
+                                                catch()를 중간에 쓰면 그 전에 하나라도 .then()이 실패하면 skip되지만 뒤에 .then()은 샐행된다. */
+
+
+
+
+
+/* 358. Async/ await */
+async function functionName() {}            /* async는 함수 앞에 붙임으로써 활성화 가능. 함수에만 붙일 수 있음. async를 붙이면 함수 전체가 큰 promise가 된다 */
+await           // promise 앞에 붙일 수 있다! resolve된 data가 반환되기 때문에 변수에 저장가능!
+
+
+
+
+
+/* 359. Async/ await & Error Handling */
+// try, catch로 error를 잡는다!
+
+
+
+
+
+
+/* 360. Async/ await vs "Raw Promises" */
+// async await에서는 같은 함수에서 동시에 작업을 할 수 없다. Promise에서는 다른 작업들과 promise가 동시에 진행이 되는 반면!
+// 동시에 여러 작업을 하면 async await가 좋은 방법은 아니다.
+// async await은 함수에만 사용가능하다.
+
+
+
+
+
+
+/* 361. Promise.all(), Promise.race() etc.
+예를 들어 1초가 지나도록 지리위치를 못 가져왔을 때 다른 것을 실행하고 싶다!? 그럴 때 .race()를 쓴다. */
+Promise.race([getPosition(), setTimer(1000)]).then();       // 가장 먼저 결과를 내는 결과값을 받는다.
+Promise.all([getPosition(), setTimer(1000)]).then();        // Promise가 내는 데이터를 모두 합친 결과값을 반환함! 모든 결과값을 합쳐야 할 때 유용!
+Promise.allSettled([getPosition(), setTimer(1000)]).then();     // .all()은 모두 성공해야 나오지만 allSettled는 각각 결과값을 반환함. 성공하든 실패하든.
+
+
+
+
+
+
+/* 369. Sending a GET Request */
+const xhr = new XMLHttpRequest();       // 이렇게 object 생성가능
+
+xhr.open('GET', 'url');         // first steps towards configuring the request. 1st arg: http method. 2nd arg: request를 보낼 url을 입력!
+
+xhr.send();                     // send http request
+
+
+
+
+
+/* 370. JSON Data & Parsing Data*/
+// JSON의 key는 모두 " "으로 싸야됨
+XMLHttpRequest().response;     // 이렇게 하면 JSON 파일을 보여줌. 그대로 못 쓰고 좀 바꿔야됨. response data를 보여준다.
+xhr.onload = function() {};           // 함수를 배정하는 event listener
+JSON.stringify();                     // JSON.stringfy: JS -> JSON. 숫자, 텍스트, array, boolean, object 모두 JSON으로 바꿀 수 있음
+JSON.parse();                         // JSON.parse: JSON -> JS
+xhr.responseType = 'json';            // 이 코드를 앞에 써두면 알아서 parse 해준다.
+
+// 이렇게 데이터 부를 수 있음!
+const listElement = document.querySelector('.posts');
+xhr.onload = function() {
+  // const listOfPosts = JSON.parse(xhr.response);
+  const listOfPosts = xhr.response;
+  for (const post of listOfPosts) {
+    const postEl = document.importNode(postTemplate.content, true);
+    postEl.querySelector('h2').textContent = post.title.toUpperCase();
+    postEl.querySelector('p').textContent = post.body;
+    listElement.append(postEl);
+  }
+};
+
+
+
+
+
+
+/* 373. Sending Data with a POST Request */
+// POST는 데이터를 보낸다.
+
+
+
+
+
+
+/* 376. Sending a DELETE Request */
+// id와 element가 제대로 mapping이 되어야 한다.
+event.target            // 이벤트가 시작된 DOM 요소
+element.closest();      //가장 가깝게 조건에 만족한 부모 요소가 반환
+
+
+
+
+
+
+/* 377. Handling Errors */
+XMLHttpRequest().onerror() = function() {};        // http request를 보냈는데 error가 발생했을 때 trigger된다.
+XMLHttpRequest().status           // 상태를 보여준다.
+XMLHttpRequest().response
+
+
+
+
+
+
+/* 378. Using the fetch() API */
+fetch();          // 그냥 이렇게 부를 수 있음!
+function sendHttpRequest(method, url, data) {
+  return fetch(url).then(response => {            // fetch(url)은 default로 GET request만 담당!
+    return response.json();     // JSON은 JS로 바꿔줄 것이다. parse 해줄 것이여~!!!
+  });
+}
+
+
+
+
+
+
+
+/* 379. POSTing Data with the fetch() API */
+function sendHttpRequest(method, url, data) {
+  return fetch(url, {
+    method: method,   // default는 'GET'이다.
+    body: JSON.stringify(data)
+  }).then(response => {
+    return response.json();
+  });
+}
+
+
+
+
+
+
+
+/* 380. Adding Request Headers */
+// 어떤 type의 data를 보내는지 말해줘야 한다.
+fetch()  // 여기에 headers Key를 넣어주면 된다!
+
+
+
+
+
+
+/* 381. fetch() & Error Handling */
+// fetch는 오래된 브라우저에서는 지원되지 않는 단점이 있다.
+
+
+
+
+
+
+/* 382. XMLHttpRequest vs fetch() */
+// fetch는 error 다루는 게 좀 빡세다
+// library를 쓰는게 젤 깔끔하기도 하다.
+
+
+
+
+
+
+/* 383. Working with FormData */
+const formData = new FormData();      // 이렇게 생성함!
+formData.append('newEntry', newEntry);        // 새로운 entry 넣기
+// formdata를 쓰면 쉽게 파일을 추가할 수 있다. 
+
+
+
+
+
+
+/* 388. Adding Libraries (Example: lodash) */
+// 원하는 library를 다운 받으면 된다. HTML에 라이브러리를 먼저 불러야 한다.
+// local에서 import해도 되지만 <script src="url">을 넣어도 된다.
+// lodash는 utility function을 많이 제공해준다.
+
+
+
+
+
+/* 389. Example: jQuery */
+// jQuery는 DOM 다루기, element 추가하기, querying element를 훨씬 더 쉽게 만들었다.  
+
+
+
+
+
+
+/* 390. Discovering Libraries */
+// Axios는 HTTP request handling하기 좋은 library다.
+
+
+
+
+
+
+
+/* 391. Axios Library & Http Requests */
+// axios library를 부를 때는 cdn을 부르면 된당~~
+axios   // 를 쓰면 axios를 부를 수 있다.
+axios.post(url)           // 이렇게 url만 필요하다. axios는 promise를 쓰기에 앞에 await를 붙일 수도 있다! JSON 파일도 자도으로 JS 파일로 바꿔준다.
+axios.get()               // 
+axios.delete()            // 
+axios.put()               // 이렇게 할 수 있당~
+// promise를 쓰기 때문에 그냥 catch (error)로 error handling도 간단하다.  
+// axios는 header을 추가하지 않아도 자동으로 해준다.
+// post에서도 데이터를 알아서 판단해서 JSON으로 바꿔준다.
+
+
+
+
+
+
+/* 392. Third-Party Library Considerations */
+// 하나의 method를 쓰는데 모든 js 파일을 다운 받는 거는 별로일 수 있다.
