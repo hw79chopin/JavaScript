@@ -326,6 +326,41 @@ event.stopPropagation();      // propagation 멈추기
 button.click();
 form.submit();  // 이렇게 event를 trigger할 수 있다.
 
+// promise
+new Promise((resolve, reject) => {};
+Promise.race().then();       // 가장 먼저 결과를 내는 결과값을 받는다.
+Promise.all().ㄴthen();        // Promise가 내는 데이터를 모두 합친 결과값을 반환함!
+
+// http
+const xhr = new XMLHttpRequest();       // 이렇게 object 생성가능
+xhr.open('GET', 'url');         // first steps towards configuring the request. 1st arg: http method. 2nd arg: request를 보낼 url을 입력!
+xhr.send();                     // send http request
+const listOfPosts = xhr.response;     // 이렇게 하면 JSON 파일을 보여줌. 그대로 못 쓰고 좀 바꿔야됨
+xhr.onload
+JSON.stringify();                     // JSON.stringfy: JS -> JSON
+JSON.parse();                         // JSON.parse: JSON -> JS
+xhr.responseType = 'json';            // 이 코드를 앞에 써두면 알아서 parse 해준다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -542,3 +577,58 @@ function getFriendNames(person) {
   }
   return collectedNames;
 }
+
+// get Geolocation
+function trackUserHandler() {
+  navigator.geolocation.getCurrentPosition(
+    posData => {
+      console.log(posData);
+    },
+    error => {
+      console.log(error);
+    }
+  );
+  console.log('Getting position...');
+}
+
+// promise, chaining
+const getPosition = opts => {
+  const promise = new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(success => {
+        resolve(success);
+      },error => {}, opts);
+  });             // getCurrentPosition에서 얻는 데이터를 promise로 보내고! .then()을 사용하면 그 데이터를 얻는 것!
+  return promise;};
+
+// chaining은 요로로콤
+function trackUserHandler() {
+  let positionData;
+  getPosition()
+    .then(posData => {
+      positionData = posData;
+      return setTimer(2000);
+    })
+    .then(data => {
+      console.log(data, positionData);
+    });
+  setTimer(1000).then(() => {
+    console.log('Timer done!');
+  });
+  console.log('Getting position...');
+}
+
+
+// onload, http
+xhr.onload = function() {
+  // const listOfPosts = JSON.parse(xhr.response);
+  const listOfPosts = xhr.response;
+  for (const post of listOfPosts) {
+    const postEl = document.importNode(postTemplate.content, true);
+    postEl.querySelector('h2').textContent = post.title.toUpperCase();
+    postEl.querySelector('p').textContent = post.body;
+    listElement.append(postEl);
+  }
+};
+
+// stringify 예시
+const jsonData = JSON.stringify(person); // convert raw JS data to JSON data string
