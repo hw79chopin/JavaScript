@@ -2501,3 +2501,13 @@ axios.put()               // 이렇게 할 수 있당~
 
 /* 392. Third-Party Library Considerations */
 // 하나의 method를 쓰는데 모든 js 파일을 다운 받는 거는 별로일 수 있다.
+
+
+
+
+
+
+/* 556. What is TypeScript and Why would you use it? 
+TS = superset to JS 
+TS는 browser에서 안 돌아간다.   
+TS는 static Types을 추가한다. */
