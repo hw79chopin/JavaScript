@@ -14,7 +14,7 @@ let currentResult
 /* Variable Naming
 $, _ 로 시작하는 변수는 가능
 중간에 _는 추천하지 않는다!
-digit으로 변수 시작도 불가능!
+digit으로 변수 시작도 불가능! */
 
 
 
@@ -48,8 +48,7 @@ outputResult(currentResult, calculationDescription);
 /* 27. Adding A Custom Function
 함수를 밑에 저장해도 됨. JS는 한 번 훑은 다음에 코드를 실행하기 때문.
 parameter = argument
-함수 뒤에 ;을 붙여도 되는데 안 붙이는 게 국룰임
-*/
+함수 뒤에 ;을 붙여도 되는데 안 붙이는 게 국룰임 */
 
 
 
@@ -113,7 +112,7 @@ const defaultResult = 0;
 let currentResult = defaultResult;
 
 function add() {
-  const calcDescription = `${currentResult} + ${userInput.value}`; // 자동으로 str으로 변환한다.
+  const calcDescription = `${currentResult} + ${userInput.value}`;   // 자동으로 str으로 변환한다.
   currentResult = currentResult + parseInt(userInput.value);
   outputResult(currentResult, calcDescription);
 }
@@ -136,7 +135,7 @@ array: list of data */
 
 // 44. Creating Objects
 const logEntry = {};        /* 이렇게 {}로 생성!
-                            property 생성하고 :로 value와 분리!
+                            property 생성하고 :로 key와 value를 분리!
 
 
 
@@ -235,7 +234,7 @@ strongAttackBtn.addEventListener('click', strongAttackHandler)
 
 
 /* 90. Validating User Input */
-promt('텍스트');        // user input 받기
+promt('텍스트');        // **user input 받기
 isNaN();            // NaN인지 아닌지 설정
 
 
@@ -307,7 +306,7 @@ for (const el of array)
     console.log(el);
 }
 
-// for-in loop: Execute for every key in " an object"
+// for-in loop: Execute for every key in "an object"
 for (const key in obj) {
     console.log(key);
     console.log(obj[key]);
@@ -324,7 +323,7 @@ while (isLoggedIn) {
 
 
 /* 99. The "for" Loop */
-// for loop
+// **for loop
 for (first; second; third) {
     /* first part: Initialize things for the loop, any expression
        second part: for loop을 진행시킬 조건
@@ -349,7 +348,7 @@ Str은 array의 한 종류여서 가능!*/
 
 
 /* 101. The "for-in" Loop
-logEntry의 key를 입력받고 싶으면 .가 아니라 []를 써야 한다*/
+**logEntry의 key를 입력받고 싶으면 .가 아니라 []를 써야 한다*/
 for (const key in logEntry) {
     console.log(`${key} => ${logEntry[key]}`);
   }
@@ -413,7 +412,7 @@ try {
     alert('You enter sth wrong, default value is used.')
     throw error;
 } finally {
-    // error가 나든지 말든지 실행시키는 부분
+    // **error가 나든지 말든지 실행시키는 부분
 }              // 이렇게 try, catch 문을 사용하면 error를 감지하고 알려준 뒤, 계속 시스템을 진행시킬 수 있다.
 
 
@@ -433,7 +432,7 @@ ES: ECMA script
 shadow variable: function 내에서 global variable을 사용하는 것도 됨.
 if 문에서 var로 변수를 만들어줘도 global variable이 됨
 if 문에서 let으로 변수를 만들어주면 그 안에서만 작동 
-Block Scope: { }에서 선언된 변수는 { } 내에서만 유효하다!*/
+**Block Scope: { }에서 선언된 변수는 { } 내에서만 유효하다!*/
 
 
 
@@ -454,7 +453,7 @@ var UserName = "Max"
 
 /* 115. Strict Mode & Writing Good Code 
 redeclaring variable은 피해라! */
-'use strict'    /* strict mode를 실행
+'use strict'    /* **strict mode를 실행
                    변수 지정 안 된 것을 봐주지 않음
                    undefined 같이 built-in을 지정하는 것을 봐주지 않음 */
 
@@ -463,7 +462,7 @@ redeclaring variable은 피해라! */
 
 
 
-/*  117. Inside the JavaScript Engine - How the Code Executes
+/* 117. Inside the JavaScript Engine - How the Code Executes
  Heap: Long-term memory
  Stack: Short-term memory. Execution context, manages your program flow  */
  
@@ -477,7 +476,7 @@ Primitive values: String, Numbers, Booleans, null, undefined, Symbol
                   Easy to duplicates
                   Stored in memory (normally on Stack)
                   Are copied by value
-Reference values: All other objects
+**Reference values: All other objects
                   Stored in memory(Heap)  
                   Copying a variable copies the pointer/reference
                   복사를 할 때 순간의 요소가 아니라 object 자체를 복사함 
@@ -498,7 +497,7 @@ const로 object을 설정해도 .push( )가 된다. 또 object의 property를 �
  }
 
  sayHi('BJ~');
- // name은 parameter, "BJ~"는 argument
+ // **name은 parameter, "BJ~"는 argument
  
 
 
@@ -577,14 +576,14 @@ const healthbody = (exercise, ingredient = protein) => {
     console.log(exercise, ingredient);
 } 
 // default value는 보통 함수 뒤에 배정한다.
-//또한 앞에서 사용한 parameter를 사용해도 된다.
+// 또한 앞에서 사용한 parameter를 사용해도 된다.
 
 
 
 
 
 
-/* 137. Introducing Rest Parameters ("Rest Operator") */
+/* **137. Introducing Rest Parameters ("Rest Operator") */
 const sumUp = (a, b, ...numbers) => {
     let sum = 0;
     for (const num of numbers) {
@@ -629,9 +628,8 @@ const showResult = (result) => {
     alert('The result after adding all numbers is: ' + result);
   };
   
-  sumUp(showResult, 1, 5, 'fdsa', -3, 6, 10);
-  sumUp(showResult, 1, 5, 10, -3, 6, 10, 25, 88);
-  console.log(subtractUp(1, 10, 15, 20));
+sumUp(showResult, 1, 5, 'fdsa', -3, 6, 10);
+sumUp(showResult, 1, 5, 10, -3, 6, 10, 25, 88);
 
 
 
@@ -727,7 +725,7 @@ document: Root DOM Node */
 # querySelector(), getElementById()
  - Return single elements (first match)
  - Different ways of querying elements (by CSS selector, by ID)
-# querySelectorALL(), getElements ByTagName()...
+# querySelectorALL(), getElementsByTagName()...
  - Return collections of elements (array-like-objects): NodeList
  - Different ways of querying elements
 # Nodes
@@ -744,8 +742,8 @@ document: Root DOM Node */
 
 /* 150. Selecting Elements in the DOM */
 document.querySelector(CSSselector);       // 처음에 매칭되는 것만 함
-document.getElementById(ID);
 document.querySelectorAll(CSSselector);
+document.getElementById(ID);
 document.getElementsByClassName(CSSClass);
 document.getElementsByTagName(HTMLTAG);
 
@@ -791,8 +789,9 @@ h1.setAttribute('value', 'some other default text')     // 이렇게 바꿀 수�
      A <em> child! </em>
    </p>
  </div>    /* 
+
 # Child
- - direct chile node or element
+ - direct child node or element
  - 여기서 p는 div의 direct child다. em은 child는 아니다.
 
 # Descendant
@@ -825,7 +824,7 @@ ul.lastElementChild
 
 
 /* 157. Using parentNode & parentElement */
-// querySelector로 지정한 뒤 closest로 가장 가까운 ancestor를 선택가능!
+// **querySelector로 지정한 뒤 closest로 가장 가까운 ancestor를 선택가능!
 const liFirst = documnet.querySelector('li');
 liFirst.closest('body')
 liFirst.closest('header')
@@ -868,7 +867,8 @@ const button = document.querySelector('button');
 
 button.addEventListener('click', () => {
   ~~~
-})
+});
+// **중요!
 section.classList.contains();     // ** class가 있는지 없는지 확인
 section.classList.add()         // class 추가
 section.classList.remove()         // class 제거
@@ -881,7 +881,7 @@ section.classList.toggle()         // class 껏다 키기
 
 /* 161. Creating Elements with JS - Overview */
 // 1. HTML을 JS에 쓸 수 있다.
-// 2. document.createElement()를 사용!
+// 2. **document.createElement()를 사용!
 
 
 
@@ -895,7 +895,7 @@ section.innerHTML = '<h2>A new title </h2>';    // tags 속에 있던 모든 nod
 
 const list = document.querySelector('ul');
 list.innerHTML = list.innerHTML + '<li>Item 4</li>'   // 단점: 모든 innerHTML를 re-render한다. performance가 떨어진다. 그래서 기존의 user input도 사라진다.
-list.insertAdjacentElement('beforeend', '<p>New Text!</p>')     // 위의 단점을 해결하는 방법! parameter [beforebegin | afterbegin | beforeend | afterend]. user input이 안 사라진다.
+list.insertAdjacentElement('beforeend', '<p>New Text!</p>')     // **위의 단점을 해결하는 방법! parameter [beforebegin | afterbegin | beforeend | afterend]. user input이 안 사라진다.
 
 
 
@@ -903,7 +903,7 @@ list.insertAdjacentElement('beforeend', '<p>New Text!</p>')     // 위의 단점
 
 
 /* 163. Adding Elements via createElement() */
-document.createElement('태그이름');       // create new DOM object
+document.createElement('태그이름');       // **create new DOM object
 // 태그를 만들고 Insert를 해야지 웹 상에 보인다.
 태그이름.appendChild('만든태그이름');       // 이렇게 해야 웹 상에 표시된다.
 
@@ -974,7 +974,7 @@ classList.toggle('클래스이름', true);       // 클래스가 존재하면 �
 
 
 /* 175. Creating a Movie in JavaScript & Clearing the Input */
-/* querySelectAll로 모든 input을 선택해서
+/* **querySelectAll로 모든 input을 선택해서
 [0].value, [1].value, [2].value로 input값을 const에 저장해주고
 input값 잘 넣었는지도 확인한 뒤
 empty array object 만들고 input을 object에 저장한 뒤 array에 push!
@@ -991,7 +991,7 @@ empty array object 만들고 input을 object에 저장한 뒤 array에 push!
 DOM의 style을 바꾸는 방식으로도 interactive하게 UI를 조정할 수 있다. */
 entryTextSection.style.display=  'none';
 /* 많은 웹에서 사용하는 장바구니, 추천 상품 등에 쓰는 방법인 것 같음.
-우선 기본으로 띄워지는 창이 input이 들어가면 (length가 0이 아니면) 사라지게 DOM으로 style.display를 변경하고
+우선 기본으로 띄워지는 창이 input이 들어가면 (**length가 0이 아니면) 사라지게 DOM으로 style.display를 변경하고
 그 input에 따른 새로운 element를 만들어준다! (기존 HTML 파일에는 <ul> 태그만 있고 나머지는 비어있음)
 <div> 태그에 class 이름을 추가하여 innerHTML로 새로운 값들을 넣어준다!
 그리고 마지막에 기존 HTML element에 append하면 끝!
@@ -1004,7 +1004,7 @@ entryTextSection.style.display=  'none';
 
 
 /* 177. Deleting Movie Elements
-삭제하고 싶은 태그를 id, query로 지정해주고
+** 삭제하고 싶은 태그를 id, query로 지정해주고
 그것을 클릭했을 때 child를 remove 해주는 형식으로 삭제한다! 
 전체 데이터를 담고 있는 object에서도 삭제해주는 거 잊지 말고!
 */
@@ -1067,7 +1067,7 @@ Other iterables */
 
 /* 184. What are "Iterables" and "Array-like Objects"?
 # Iterable: for-of loop에 쓴당
-# Array-lie object: length property와 index가 있는 것  */
+# Array-like object: length property와 index가 있는 것  */
 
 
 
@@ -1109,7 +1109,7 @@ arrayName[인덱스] = '텍스트';   // 인덱스로 element를 replace한다. 
 
 
 
-/* 188. The splice() Method */
+/* **188. The splice() Method */
 arrayName.splice(startIndex, howMany, addElement1, addElement2);       // startIndex부터 howMany에서 주어진 개수만큼 element를 삭제한다. 그 뒤에 addElements를 추가한다.
 arrayName.splice(0);      // array를 다 없앤다. 그리고 없어진 element를 반환하다.
 
@@ -1121,8 +1121,8 @@ arrayName.splice(0);      // array를 다 없앤다. 그리고 없어진 element
 /* 189. Selecting Ranges & Creating Copies with slice() */
 const newArray = arrayName.slice();        /* **.slice()는 기존 array를 복사해서 새로운 array로 돌려준다.
                                                이를 통해서 기존 array에 element를 건들여도 새로운 array는 영향을 미치지 않게 된다.*/
-newArray.slice(startIndex, endIndex);      // startIndex에서 endIndex까지 array를 slicing해서 새로운 array로 반환한다.
-newArray.slice(startIndex);            // endIndex가 없으면 startIndex부터 끝까지 slicing한다.
+newArray.slice(startIndex, endIndex);      // **startIndex에서 endIndex까지 array를 slicing해서 새로운 array로 반환한다.
+newArray.slice(startIndex);                // endIndex가 없으면 startIndex부터 끝까지 slicing한다.
 
 
 
@@ -1138,7 +1138,7 @@ const newArray = oldArray.concat([1,2,3]);          // push( )는 array를 한 e
 
 
 
-/* 191. Retrieving Indexes with indexOf() /& lastIndexOf() */
+/* 191. Retrieving Indexes with indexOf() & lastIndexOf() */
 arrayName.indexOf(element);        // element의 첫 번째 index를 반환한다. 못 찾으면 -1을 반환한다.
 newArrarrayNameay.lastIndexOf(element);        // element의 첫 번째 index를 뒤에서부터 찾아서 반환한다. primitive value에는 잘 먹히나 reference value에는 잘 안 먹힌다.
 
@@ -1148,7 +1148,7 @@ newArrarrayNameay.lastIndexOf(element);        // element의 첫 번째 index를
 
 
 /* 192. Finding Stuff: find() and findIndex() */
-arrayName.find((arguemnt1, arg2, arg3) => {});       /* argument에 function이 와도 된다. 3개의 argument가 가능하다.
+arrayName.find((argument1, arg2, arg3) => {});       /* argument에 function이 와도 된다. 3개의 argument가 가능하다.
                                    첫 번째 argument: single object of that array
                                    두 번째 arguemnt: index of the single element
                                    세 번째 argument: full array 
@@ -1217,7 +1217,7 @@ arrayName.filter((arg1, index, arg2 ) => {});       // **기존 array에 손대�
 
 
 /* 199. The Important reduce() Method */
-arrayName.reduce((preValue, curValue, curIndex, originArray) => preValue + curValue, 0);             // 앞에 두 개 arguments를 많이 쓴다! 0은 initial value다!
+arrayName.reduce((preValue, curValue, curIndex, originArray) => preValue + curValue, 0);             // **앞에 두 개 arguments를 많이 쓴다! 0은 initial value다!
 // reduce()는 array를 simpler value로 줄인다.
 /* reduce() executes the function on the every element in the array
 preValue는 첫 번째 execution에서만 initial value가 정해져있으면 initial value가 없으면 undefined이다. 
@@ -1353,13 +1353,12 @@ delete person.age;      // **이렇게 property를 없앨 수 있다.
 
 
 
-
 /* 217. Special Key Names & Square Bracket Property Access */
 /* keys는 무조건 str으로 바뀐다. 
 key name에 띄어쓰기, - 를 쓰고 싶으면 " " 따옴표 내에 넣으면 된다.
 그럼 어떻게 property를 부르나?
 object.property 이 방법으로는 못 부른다.
-object['key name'] 이렇게 부를 수 있다. 따옴표를 꼭 넣어야 한다.*/ 
+**object['key name'] 이렇게 부를 수 있다. 따옴표를 꼭 넣어야 한다.*/ 
 
 
 
@@ -1378,7 +1377,7 @@ object['key'] 이렇게 써도 된다!        */
 
 
 /* 219. Dynamic Property Access & Setting Properties Dynamically */
-/* User input 같은 것을 Keyname으로 정해주고 싶으면 */
+/* **User input 같은 것을 Keyname으로 정해주고 싶으면 */
 const object = {
   [userInputKeyName] : '..',
   age: 30
@@ -1417,7 +1416,7 @@ const.append()를 통해서 만들어준 element에 object를 추가해주자 */
     let text = movie.info.title + ' - ';
     for (const key in movie.info) {
       if (key !== 'title') {
-        text = text + `${key}: ${movie.info[key]}`;   // 이렇게 할 수 있다.
+        text = text + `${key}: ${movie.info[key]}`;   // **이렇게 할 수 있다.
       }
     }
     movieEl.textContent = text;
@@ -1470,7 +1469,7 @@ Object.assign();          // target을 입력하고 overwrite하고 싶은 prope
 
 /* 227. Object Destructuring */
 // key-value pair를 빼서 다른 variable에 저장!
-const { info, ...otherProps } = movie;       //  오른쪽에 object 이름을 놓고 { } 안에는 그 object에서 extract하고 싶은 property를 놓는다.
+const { info, ...otherProps } = movie;       //  오른쪽에 object 이름을 놓고 { } 안에는 그 object에서 **extract하고 싶은 property를 놓는다.
 const { info: newName } = movie;       // 새로운 이름에 object의 property를 저장하고 싶을 때!
 
 
@@ -1479,9 +1478,7 @@ const { info: newName } = movie;       // 새로운 이름에 object의 property
 
 
 /* 228. Checking for Property Existance */
-if ('property' in objectName) {
-
-};       // object에 property 확인할 떄~ in operator하기!
+if ('property' in objectName) {};       // object에 property 확인할 떄~ in operator하기!
 if (movie.propName === undefined) { };       // 이렇게 할 수도 있다.
 
 
@@ -1549,7 +1546,7 @@ methodName.apply(objectName);       // 총 2개의 arguments를 가진다. 두 �
 
 /* 234. "this" and Arrow Functions */
 // arrow function은 this를 모른다. arrow function can fix strange this behavior
-// function keyworkd로 function을 만들면 this가 function 내에 머물기 때문에 object의 다른 property를 부를 수가 없다.
+// function keyword로 function을 만들면 this가 function 내에 머물기 때문에 object의 다른 property를 부를 수가 없다.
 
 
 
@@ -1816,7 +1813,7 @@ document.documentElement.clientWidth    // 가장 실용적인 높이, 너비를
 
 
 /* 294. Handling Scrolling */
-element.scrollIntoView({behavior: 'smooth'});        // 해당 element로 scroll해주는 개꿀 method. 애니메이션도 넣을 수 있음
+element.scrollIntoView({behavior: 'smooth'});        // **해당 element로 scroll해주는 개꿀 method. 애니메이션도 넣을 수 있음
 
 
 
@@ -1939,7 +1936,7 @@ window.addEventListener('scroll')       // scroll할 때 반응
 const form = document.querySelector('form');
 
 form.addEventListener('submit', event => {
-  event.preventDefault();   // default를 멈추고
+  event.preventDefault();   // **default를 멈추고
   console.log(event)        // 내가 하고 싶은 logic을 입력!
 })
 
@@ -1948,8 +1945,7 @@ form.addEventListener('submit', event => {
 
 
 
-/* 312. Understanding "Capturing" & "Bubbling" Phase */
-/*
+/* 312. Understanding "Capturing" & "Bubbling" Phase
 bubbling: inside to outside
 capturing: outside to inside          */
 
@@ -1987,9 +1983,8 @@ form.submit();  // 이렇게 event를 trigger할 수 있다.
 
 
 
-/* 318. Configuring Draggable Elements */
-/*
-1st) 우선! HTML에 attribute에 draggable = "true"를 놔야 한다.
+/* 318. Configuring Draggable Elements
+1st) 우선! HTML에 attribute에 **draggable = "true"를 놔야 한다.
 2nd) dragstart event 설정 */
 connectDrag() {
   document.getElementById(this.id).addEventListener('dragstart', event => {
@@ -2017,8 +2012,8 @@ list.addEventListener('dropend', event => {});
 
 
 
-/* 325. Pure Functions & Side-Effects */
-/* Pure functions, side effect
+/* 325. Pure Functions & Side-Effects
+Pure functions, side effect
 factory functions
 Closure & Scope Revisited
 Recursion
@@ -2081,7 +2076,7 @@ function powerOf(x, n) {
 
 
 /* 333. Advanced Recursion */
-// for loop에서 하지 못한 것들을 할 수 있다. 얼마나 많은 level의 nesting이 필요할지 모를 때
+// **for loop에서 하지 못한 것들을 할 수 있다. 얼마나 많은 level의 nesting이 필요할지 모를 때
 function getFriendNames(person) {
   const collectedNames = [];
 
@@ -2091,7 +2086,7 @@ function getFriendNames(person) {
 
   for (const friend of person.friends) {
     collectedNames.push(friend.name);
-    collectedNames.push(...getFriendNames(friend));
+    collectedNames.push(...getFriendNames(friend)); // **요로로콤
   }
   return collectedNames;
 }
@@ -2118,9 +2113,9 @@ const circle = createCircle(1);
 
 
 /* Constructor function */
-function Circle(radius){
+function Circle(radius) {
   this.radius = radius;
-   this.draw = function(){
+  this.draw = function(){
      console.log('draw');
    }
  }
@@ -2146,8 +2141,10 @@ new operator를 통해 object를 불러올 수 있음 */
 
 
 
+
 /* 339. The BigInt Type */
 // BigInt는 매우 큰 숫자를 다룰 때 유용하다. 
+
 
 
 
@@ -2205,8 +2202,8 @@ regex = /^\S+@\S+\.\S+$/            // 여기에 패턴을 만들어도 된다. 
 
 
 
-/* 350. Understanding Asynchronous Code Execution ("Async Code") */
-/* 좀 오래 걸리는 것들을 하느라 다른 코드의 실행을 방해할 수 있다.
+/* 350. Understanding Asynchronous Code Execution ("Async Code")
+좀 오래 걸리는 것들을 하느라 다른 코드의 실행을 방해할 수 있다.
 Asynchronous Code: 이게 해결책임 
 좀 오래 걸리는 애들은 browser가 할 수 있게 빼두고 코드가 계속 진행된다.
 addEventListener도 실행시키면 사용자가 click할 때까지 기다리는 게 아니라 browser가 한 곳으로 빼두는 것*/ 
@@ -2227,7 +2224,7 @@ event loop: async code와 callback function을 다루는 것을 도와준다.
 
 
 /* 352. Sync + Async Code - The Execution  */
-navigator.geolocation.getCurrentPosition();   // 현재 위치를 가져올 수 있음.
+navigator.geolocation.getCurrentPosition();   // **현재 위치를 가져올 수 있음.
 
 
 
@@ -2236,9 +2233,9 @@ navigator.geolocation.getCurrentPosition();   // 현재 위치를 가져올 수 
 
 /* 353. Multiple Callbacks & setTimeout(0) */
 // promises: .then()을 사용해 가독성을 높인다!
-// promise는 주로 서버에서 받아온 데이터를 화면에 표시할 때 사용합니다. 
+// **promise는 주로 서버에서 받아온 데이터를 화면에 표시할 때 사용합니다. 
 new Promise();  /* 이렇게 promise 생성. 2가지 arguments를 받는다.
-                   모두 다 function이다. resolve & reject function! 
+                   모두 다 function이다. **resolve & reject function! 
                    resolve function은 browser에서 온다. */
 .then();        /* promise가 해결되면 바로 실행이 된다. */
 
@@ -2289,7 +2286,7 @@ Promise().catch()                            /* promise에 사용할 수 있음!
 
 
 
-/* 358. Async/ await */
+/* 358. Async, await */
 async function functionName() {}            /* async는 함수 앞에 붙임으로써 활성화 가능. 함수에만 붙일 수 있음. async를 붙이면 함수 전체가 큰 promise가 된다 */
 await           // promise 앞에 붙일 수 있다! resolve된 data가 반환되기 때문에 변수에 저장가능!
 
@@ -2374,7 +2371,7 @@ xhr.onload = function() {
 /* 376. Sending a DELETE Request */
 // id와 element가 제대로 mapping이 되어야 한다.
 event.target            // 이벤트가 시작된 DOM 요소
-element.closest();      //가장 가깝게 조건에 만족한 부모 요소가 반환
+element.closest();      // 가장 가깝게 조건에 만족한 부모 요소가 반환
 
 
 
@@ -2511,3 +2508,25 @@ axios.put()               // 이렇게 할 수 있당~
 TS = superset to JS 
 TS는 browser에서 안 돌아간다.   
 TS는 static Types을 추가한다. */
+
+
+
+
+
+
+/* 396. Splitting Code in a Sub-optimal Way */
+// 파일을 나누는 게 좋다!
+// one class per file이 국룰임
+
+
+
+
+
+
+/* 398. We Need a Development Server! */
+// serve.js
+// 이 서버가 앱을 실행할 것임 => node.js를 깔아야 됨!
+// sudo npm install -g serve
+// password 입력하면 serve를 깐다!
+ // visual studio code에서 terminal에 serve를 치면 실행된다.
+ 
