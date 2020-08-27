@@ -22,11 +22,11 @@ digit으로 변수 시작도 불가능! */
 
 
 /* 25. More on Strings
-template literal: ` ` 이거 안에 ${ }를 쓰면 변수를 출력할 수 있음. ' ', " "에서는 사용 불가 */
+template literal: **` ` 이거 안에 ${ }를 쓰면 변수를 출력할 수 있음. ' ', " "에서는 사용 불가 */
 let calculationDescription = `(${defaultResult} + 10) * 3 /2 - 1`;
 // 브라우저에서 inspection한 뒤에 styles에서 white-space: pre; 해주면 스페이스, \n이 다 나온다.
 \''         // string 속에 ' '을 출력하고 싶을 때. escape 코드!!!
-alert();        // 팝업창 띄우는 명령어
+alert();        // **팝업창 띄우는 명령어
 
 // Code
 const defaultResult = 0;
@@ -97,7 +97,7 @@ task3Element.addEventListener('click', greet);
 
 
 
-// 36. Converting Data Types
+// 36. **Converting Data Types
 parseInt()      // int로 바꾼다
 parseFloat()      // Float로 바꾼다
 
@@ -170,13 +170,6 @@ JS를 load할 때 쓰는 속성은 2개!
 
 
 
-/* 74. Introducing "if" Statements & Boolean (Comparison) Operators */
-
-
-
-
-
-
 /* 81. Beyond true/ false: "Truthy" and "Falsy" Values */
 if (something)      /* something이 non-empty string이기만 하면 if문이 진행된다. 굳이 boolean이 아니여도 된다.
 
@@ -185,7 +178,7 @@ if (something)      /* something이 non-empty string이기만 하면 if문이 �
 
 
 
-/* 86. Adding More "if" Statements & A "Strong Attack"
+/* 86. **Adding More "if" Statements & A "Strong Attack"
 Functionality */
 const ATTACK_VALUE = 10;
 const STRONG_ATTACK_VALUE = 17;
@@ -242,7 +235,7 @@ isNaN();            // NaN인지 아닌지 설정
 
 
 
-/* 93. Introducing the Ternary Operator
+/* 93. Introducing the **Ternary Operator
 ternary operator: condition을 넣고 ?를 넣고 true일 때 값 : False일 때 값을 넣는다! */
 const userName = isLogin? 'Max' : null
 
@@ -257,6 +250,7 @@ if (mode === MODE_ATTACK) {
     maxDamage = STRONG_ATTACK_VALUE;
     logEvent = LOG_EVENT_PLAYER_STRONG_ATTACK;
   }
+
 
 const maxDamage = mode === MODE_ATTACK ? ATTACK_BALUE : STRONG_ATTACK_VALUE;
 const logEvent = mode === MODE_ATTACK ? LOG_EVENT_PLAYER_ATTACK : LOG_EVENT_PLAYER_STRONG_ATTACK;
@@ -293,7 +287,7 @@ switch (ev) {
 
 
 
-/* 98. Introducing Loops */
+/* 98. **Introducing Loops */
 // for loop: Execute code a certain amount of times
 for (let i=0; i<3 ; i+++)
 {
@@ -393,7 +387,7 @@ let j = 0;
 
 
 
-/* 106. Error Handling with "try-catch" - An Introduction */
+/* **106. Error Handling with "try-catch" - An Introduction */
 if (i < 10 || i > 0) {
     throw { message: 'Invalid user input, not a number!'};
 }
@@ -403,7 +397,7 @@ if (i < 10 || i > 0) {
 
 
 
-/* 108. Working with "try-catch" to Catch & Handle Errors */
+/* **108. Working with "try-catch" to Catch & Handle Errors */
 try {
     let hyunWoo = getMax();
 } catch (error) {
@@ -444,7 +438,7 @@ console.log(userName)
 var UserName = "Max"
 /* 이렇게 하면 error가 안 나고 undefined가 뜬다.
     var로 변수를 지정하면 맨 처음에 다 실행시킨다. 이게 바로 Hoisting 
-    근데 이렇게 하면 가독성이 매우 떨어져서 잘 안 함*/
+    근데 이렇게 하면 가독성이 매우 떨어져서 잘 안 함 */
 
 
 
@@ -482,7 +476,7 @@ Primitive values: String, Numbers, Booleans, null, undefined, Symbol
                   복사를 할 때 순간의 요소가 아니라 object 자체를 복사함 
                   대신 ... operator를 통해 복사하면 value를 copy함
 const로 object을 설정해도 .push( )가 된다. 또 object의 property를 바꾸는 것도 가능하다. 왜?
-객체에 저장한 것이 address이고 .push( )는 address는 건들이지 않기 때문!*/
+객체에 저장한 것이 address이고 .push( )는 address는 건들이지 않기 때문! */
  
 
 
@@ -491,12 +485,12 @@ const로 object을 설정해도 .push( )가 된다. 또 object의 property를 �
 
 /* 125. Parameters vs Arguments
  parameter: 함수 내에 parameter
- argument: 함수를 실제 실행했을 때 그 사이에 오는 것*/
+ argument: 함수를 실제 불러올 때 그 사이에 오는 것*/
  function sayHi(name) {
      alert("HI"+ name)
  }
 
- sayHi('BJ~');
+ sayHi('hi~');
  // **name은 parameter, "BJ~"는 argument
  
 
@@ -526,7 +520,7 @@ const func = function startGame() {         // 함수 이름은 지워줘도 된
 };
 // 이렇게 객체에 함수를 저장해줄 수 있다. 
 // 함수가 =로 객체에 지정되면 global scope로 함수의 이름이 저장되지 않는다.
-// function () {} 이거는 declaration, 객체에 저장하면 expression
+// **function () {} 이거는 declaration, 객체에 저장하면 expression
 
 
 
@@ -591,7 +585,7 @@ const sumUp = (a, b, ...numbers) => {
     }
     return sum;
 }
-/* 얼마나 많은 parameter가 들어올지 모를 때 사용하는 방법!  
+/* **얼마나 많은 parameter가 들어올지 모를 때 사용하는 방법!  
 ...를 사용하면 많은 parameter가 들어와도 array로 합친다. 
 ... 앞에는 parameter를 둘 수 있지만 뒤에는 둘 수 없다. */
 
@@ -641,7 +635,7 @@ object에 쓰는 method
 .bind( ): prepares the function 
 미리 알고 있는 parameter를 입력해줄 수 있다.
 prepares for execution 
-정리: allows us to preconfigure functions in places where we need to pass in a value but we also don't want to directly execute a function.*/
+정리: allows us to preconfigure functions in places where we need to pass in a value but we also don't want to directly execute a function. */
 
 
 
@@ -683,7 +677,6 @@ function calculate(operation) {
 
 /* 142. call() and apply() */ 
 // 일단은 들어만 둬~
-
 /* Wrap up
 callback function
 bind( )
@@ -740,7 +733,7 @@ document: Root DOM Node */
 
 
 
-/* 150. Selecting Elements in the DOM */
+/* **150. Selecting Elements in the DOM */
 document.querySelector(CSSselector);       // 처음에 매칭되는 것만 함
 document.querySelectorAll(CSSselector);
 document.getElementById(ID);
@@ -770,7 +763,7 @@ h1.style.backgroundColor = 'red';       // 이렇게 바꿀 수도 있음
 
 /* 153. Attributes vs Properties
 - browser는 user가 입력한 attributes로 DOM object를 만든다 
-- attribute: thing in you HTML code, HTML text
+- attribute: thing in your HTML code, HTML text
 - property: value stored in the object created based on your HTML code */
 h1.setAttribute('value', 'some other default text')     // 이렇게 바꿀 수도 있음
 
@@ -781,7 +774,7 @@ h1.setAttribute('value', 'some other default text')     // 이렇게 바꿀 수�
 
 /* 155. Traversing the DOM - Overview 
 # traversing the DOM?
- - It means that once you selected one element, one node therefore, you might be intered in diving into 
+ - It means that once you selected one element, one node therefore, you might be interested in diving into 
    all of its child nodes
  - 모든 node를 선택하는 대신 element를 고른 뒤 children, siblings로 move하는 것! */
  <div>
@@ -868,7 +861,7 @@ const button = document.querySelector('button');
 button.addEventListener('click', () => {
   ~~~
 });
-// **중요!
+// ****중요!
 section.classList.contains();     // ** class가 있는지 없는지 확인
 section.classList.add()         // class 추가
 section.classList.remove()         // class 제거
@@ -881,7 +874,7 @@ section.classList.toggle()         // class 껏다 키기
 
 /* 161. Creating Elements with JS - Overview */
 // 1. HTML을 JS에 쓸 수 있다.
-// 2. **document.createElement()를 사용!
+// 2. ****document.createElement()를 사용!
 
 
 
@@ -989,7 +982,7 @@ empty array object 만들고 input을 object에 저장한 뒤 array에 push!
 /* DOM style 바꾸기
 위처럼 toggle을 통해서 class 이름을 추가 or 삭제해서 UI를 바꿔줄 수도 있고
 DOM의 style을 바꾸는 방식으로도 interactive하게 UI를 조정할 수 있다. */
-entryTextSection.style.display=  'none';
+entryTextSection.style.display = 'none';
 /* 많은 웹에서 사용하는 장바구니, 추천 상품 등에 쓰는 방법인 것 같음.
 우선 기본으로 띄워지는 창이 input이 들어가면 (**length가 0이 아니면) 사라지게 DOM으로 style.display를 변경하고
 그 input에 따른 새로운 element를 만들어준다! (기존 HTML 파일에는 <ul> 태그만 있고 나머지는 비어있음)
@@ -1078,7 +1071,7 @@ Other iterables */
 const numbers = [1,2,3];    // 가장 심플한 방법
 const moreNumbers = new Array();    /* [] 이렇게 생성됨
 대신 이 방법을 쓰고 1개의 single number만 전해주면 empty array with 'argument' length Array가 나온다.*/
-const moreNumbers = Array();        /* new를 생략해줘도 된다.   */
+const moreNumbers = Array();        /* new를 생략해줘도 된다. */
 const yetMoreNumbers = Array.of(1,2);     // 이렇게도 생성가능
 const listItems = document.querySelectorAll('li');
 const arraylistItems = Array.from(listItems);           // Array.from은 iterable이나 array-like object를 array로 바꿔준다.
@@ -1119,9 +1112,9 @@ arrayName.splice(0);      // array를 다 없앤다. 그리고 없어진 element
 
 
 /* 189. Selecting Ranges & Creating Copies with slice() */
-const newArray = arrayName.slice();        /* **.slice()는 기존 array를 복사해서 새로운 array로 돌려준다.
-                                               이를 통해서 기존 array에 element를 건들여도 새로운 array는 영향을 미치지 않게 된다.*/
-newArray.slice(startIndex, endIndex);      // **startIndex에서 endIndex까지 array를 slicing해서 새로운 array로 반환한다.
+const newArray = arrayName.slice();        /* ****.slice()는 기존 array를 복사해서 새로운 array로 돌려준다.
+                                              이를 통해서 기존 array에 element를 건들여도 새로운 array는 영향을 미치지 않게 된다.*/
+newArray.slice(startIndex, endIndex);      // ****startIndex에서 endIndex까지 array를 slicing해서 새로운 array로 반환한다.
 newArray.slice(startIndex);                // endIndex가 없으면 startIndex부터 끝까지 slicing한다.
 
 
@@ -1139,7 +1132,7 @@ const newArray = oldArray.concat([1,2,3]);          // push( )는 array를 한 e
 
 
 /* 191. Retrieving Indexes with indexOf() & lastIndexOf() */
-arrayName.indexOf(element);        // element의 첫 번째 index를 반환한다. 못 찾으면 -1을 반환한다.
+arrayName.indexOf(element);                    // **element의 첫 번째 index를 반환한다. 못 찾으면 -1을 반환한다.
 newArrarrayNameay.lastIndexOf(element);        // element의 첫 번째 index를 뒤에서부터 찾아서 반환한다. primitive value에는 잘 먹히나 reference value에는 잘 안 먹힌다.
 
 
@@ -1154,7 +1147,7 @@ arrayName.find((argument1, arg2, arg3) => {});       /* argument에 function이 
                                    세 번째 argument: full array 
                                    함수를 arrayName의 모든 element에 적용
                                    find는 copy를 만들지는 않는다 */
-arrayName.findIndex();          // matching element의 index를 반환한다.
+arrayName.findIndex();          // **matching element의 index를 반환한다.
 
 // 예시
 const manuel = personData.find((person, idx, persons) => {
@@ -1171,8 +1164,9 @@ console.log(manuel, personData);
 
 
 
+
 /* 193. Is it Included? */
-arrayName.includes();        // primitive value에 적합!
+arrayName.includes();        // **primitive value에 적합!
 
 
 
@@ -1182,7 +1176,7 @@ arrayName.includes();        // primitive value에 적합!
 
 
 /* 194. Alternative to for Loops: The forEach() Method */
-arrayName.forEach((arg1, index, arg2) => {function을쓰자;});         /* for-of loop 대체품! arg1: for loop의 element, index은 index
+arrayName.forEach((arg1, index, arg2) => {function을쓰자;});         /* ****for-of loop 대체품! arg1: for loop의 element, index은 index
 
 
 
@@ -1208,7 +1202,7 @@ arrayName.reverse();      // 반대로 sort한다.
 
 
 /* 197. Filtering Arrays with filter() */
-arrayName.filter((arg1, index, arg2 ) => {});       // **기존 array에 손대지 않고 새로운 array를 반환한다. arg1은 찾고 있는 value, index는 index, arg2는 original array이고 잘 안 쓴다.
+arrayName.filter((arg1, index, arg2 ) => {});       // ****기존 array에 손대지 않고 새로운 array를 반환한다. arg1은 찾고 있는 value, index는 index, arg2는 original array이고 잘 안 쓴다.
 
 
 
@@ -1217,7 +1211,7 @@ arrayName.filter((arg1, index, arg2 ) => {});       // **기존 array에 손대�
 
 
 /* 199. The Important reduce() Method */
-arrayName.reduce((preValue, curValue, curIndex, originArray) => preValue + curValue, 0);             // **앞에 두 개 arguments를 많이 쓴다! 0은 initial value다!
+arrayName.reduce((preValue, curValue, curIndex, originArray) => preValue + curValue, 0);             // ****앞에 두 개 arguments를 많이 쓴다! 0은 initial value다!
 // reduce()는 array를 simpler value로 줄인다.
 /* reduce() executes the function on the every element in the array
 preValue는 첫 번째 execution에서만 initial value가 정해져있으면 initial value가 없으면 undefined이다. 
@@ -1240,7 +1234,7 @@ data.join('');          // join 시키기! str을 만든다.default로 ,로 구�
 
 
 /* 202. The Spread Operator (...) */
-// 기존 array를 변동해도 복사한 array는 바뀌지 않는다.
+// **기존 array를 변동해도 복사한 array는 바뀌지 않는다.
 // .min( )처럼 array를 argument로 받지 않는 메소드에 ...를 쓰면 굉장히 유용하다!!! to pull elements from the array
 
 
@@ -1257,7 +1251,7 @@ const [ newArray1 , newArray2, ...otherInfo ] = oldArray;    // array destructur
 
 
 /* 204. Maps & Sets - Overview */
-/* three major iterable data structure
+/* **three major iterable data structure
 1. Arrays
 2. Set
 3. Maps           */
@@ -1284,8 +1278,10 @@ const newMap = new Map();         // key, value 형태로 넣어줘야 함! Key 
 const newMap = new Map([[person1, [{date: 'yesterday', price:10}]]]);
 newMap.set();           // 새로운 entry 넣어주기, key, value 형태로 넣어줘야 함!
 newMap.keys();          // key를 얻을 수 있다.
-newMap.values();          // value를 얻을 수 있다.
+newMap.values();        // value를 얻을 수 있다.
+newMap.entries();       // entries를 얻을 수 있다.
 newMap.has();           // 특정 key가 map에 있는지 확인
+
 for (const [key, value] of newMap.entries()) {
   console.log(key, value);
 }                       // 이렇게 정보를 뽑을 수 있다!
@@ -1346,7 +1342,7 @@ personData.set(person, 'Extra info!');
 
 /* 216. Adding, Modifying & Deleting Properties */
 person.isAdmin = ''     // 이렇게 property를 추가할수 있다.
-delete person.age;      // **이렇게 property를 없앨 수 있다.
+delete person.age;      // ****이렇게 property를 없앨 수 있다.
 
 
 
@@ -1377,12 +1373,12 @@ object['key'] 이렇게 써도 된다!        */
 
 
 /* 219. Dynamic Property Access & Setting Properties Dynamically */
-/* **User input 같은 것을 Keyname으로 정해주고 싶으면 */
+/* ****User input 같은 것을 Keyname으로 정해주고 싶으면 */
 const object = {
   [userInputKeyName] : '..',
   age: 30
 };
-// [ ]를 사용하면 dynamic하게 property에 접근, 추가할 수 있다.
+// **[ ]를 사용하면 dynamic하게 property에 접근, 추가할 수 있다.
 
 
 
@@ -1433,7 +1429,7 @@ const.append()를 통해서 만들어준 element에 object를 추가해주자 */
 const renderMovies = (filter = '') => {
 const filteredMovies = !filter
 ? movies
-: movies.filter(movie => movie.info.title.includes(filter));
+: movies.filter(movie => movie.info.title.includes(filter)); // **
 };
 
 
@@ -1449,7 +1445,7 @@ const filteredMovies = !filter
 
 
 /* 225. The Object Spread Operator (...) */
-/* **spread operator를 사용하면 address를 공유해서 기존 object의 property value가 바뀔 때 같이 바뀌는 것을 막을 수 있다. */
+/* ****spread operator를 사용하면 address를 공유해서 기존 object의 property value가 바뀔 때 같이 바뀌는 것을 막을 수 있다. */
 // copy를 만드는 거다!!!
 // 근데 spread operator를 사용해도 속에 array가 있으면 그것은 똑같이 address를 공유하기 때문에 기존 object value 변경에 따라 바뀐다. 
 const person3 = {...person, age:29, hobbies:[...person.hobbies]};   // **이렇게 하면 hobbies를 또 지정해주면 기존 object에 영향을 받지 않는다.
@@ -1467,7 +1463,7 @@ Object.assign();          // target을 입력하고 overwrite하고 싶은 prope
 
 
 
-/* 227. Object Destructuring */
+/* 227. **Object Destructuring */
 // key-value pair를 빼서 다른 variable에 저장!
 const { info, ...otherProps } = movie;       //  오른쪽에 object 이름을 놓고 { } 안에는 그 object에서 **extract하고 싶은 property를 놓는다.
 const { info: newName } = movie;       // 새로운 이름에 object의 property를 저장하고 싶을 때!
@@ -1478,7 +1474,7 @@ const { info: newName } = movie;       // 새로운 이름에 object의 property
 
 
 /* 228. Checking for Property Existance */
-if ('property' in objectName) {};       // object에 property 확인할 떄~ in operator하기!
+if ('property' in objectName) {};            // **object에 property 확인할 떄~ in operator하기!
 if (movie.propName === undefined) { };       // 이렇게 할 수도 있다.
 
 
@@ -1488,7 +1484,7 @@ if (movie.propName === undefined) { };       // 이렇게 할 수도 있다.
 
 /* 229. Introducing "this" */
 props.toUpperCase();
-/* **object 내에서는 arrow function을 쓰면 안 된다 */
+/* ****object 내에서는 arrow function을 쓰면 안 된다 */
 /* **arrow function을 쓰면 this는 global variable을 가져옴! */
 const newMovie = {
   info: title,
@@ -1647,7 +1643,7 @@ constructor()
 
 
 /* 253. Implementing Inheritance */
-class ShoppingCart extends Component    // 이런식으로 Component 클래스를 상속 받을 수 있다.
+class ShoppingCart extends Component    // **이런식으로 Component 클래스를 상속 받을 수 있다.
 // 상속 받는 클래스는 constructor가 없어도 된다. 
 super();  // 를 사용하면 parent class의 constructor를 부른다!
 
@@ -1821,7 +1817,7 @@ element.scrollIntoView({behavior: 'smooth'});        // **해당 element로 scro
 
 
 /* 295. Working with <template> Tags */
-// <template>: 바로 render하지는 않지만 JS에 의해서 render가 될 tag!
+// <template>: **바로 render하지는 않지만 JS에 의해서 render가 될 tag!
 const tooltipTemplate = document.getElementById('tooltip');
 const tooltipBody = document.importNode(tooltipTemplate.contentEditable, true);
 tooltipBody.querySelector('p').textContent = this.text;
@@ -1845,7 +1841,7 @@ tooltipElement.append(tooltipBody);
 /* 297. Setting Timers & Intervals */
 setTimeout(func, 3000);            /* 첫 번째 argument: timer가 끝나면 실행될 함수
                                       두 번재 argument: 시간, ms단위*/
-setInterval(func, 2000);           /* 주기적으로 함수를 실행 */
+setInterval(func, 2000);           /* **주기적으로 함수를 실행 */
 clearInterval();              /* Interval 멈추기 */
 clearTimeout();               /* 타이머 멈추기 */  
 
@@ -1867,9 +1863,9 @@ history.length                  // 유저가 얼마나 많은 step을 이 탭에
 
 
 /* 299. The "navigator" Object */
-navigator          // browser과 operating system이 상호작용할 수 있게 해줌
-navigator.userAgent         // 유저가 쓰는 browser를 알 수 있음
-navigator.geolocation.getCurrentPosition()      // 유저의 위치를 알 수 있음
+navigator          // **browser과 operating system이 상호작용할 수 있게 해줌
+navigator.userAgent         // **유저가 쓰는 browser를 알 수 있음
+navigator.geolocation.getCurrentPosition()      // **유저의 위치를 알 수 있음
 
 
 
@@ -1878,7 +1874,7 @@ navigator.geolocation.getCurrentPosition()      // 유저의 위치를 알 수 �
 
 
 /* 300. Working with Dates */
-new Date()        // 현재 시간과 timestamp를 반환
+new Date()        // **현재 시간과 timestamp를 반환
 .getDate()
 .getDay()
 .getTime()
@@ -1956,7 +1952,7 @@ capturing: outside to inside          */
 
 
 /* 313. Event Propagation & "stopPropagation()" */
-// propagation: 이벤트가 element 뿐만 아니라 그 조상들의 이벤트도 듣게 된다는 것.
+// **propagation: 이벤트가 element 뿐만 아니라 그 조상들의 이벤트도 듣게 된다는 것.
 // 예를 들면 <div> 내 <button>을 눌렀을 때 <div>의 eventListener도 trigger하게 되는 것
 event.stopPropagation();      // propagation 멈추기
 
@@ -2017,8 +2013,8 @@ Pure functions, side effect
 factory functions
 Closure & Scope Revisited
 Recursion
-# pure function: 어떤 input이든 같은 output을 낸다.
-# impure function: 같은 input이에도 다른 output을 낸다. 혹은 side-effect를 낸다. e.g addRandom 
+# pure function: **어떤 input이든 같은 output을 낸다.
+# impure function: **같은 input이에도 다른 output을 낸다. 혹은 side-effect를 낸다. e.g addRandom 
 
 
 
@@ -2062,7 +2058,7 @@ Recursion
 
 
 
-/* 332. Introducing "Recursion" */
+/* 332. Introducing **"Recursion" */
 for (let i=0; i <n; i++) {}; // for i in range(n)을 쓰는 방법인 듯!
 
 function powerOf(x, n) {
@@ -2076,7 +2072,7 @@ function powerOf(x, n) {
 
 
 /* 333. Advanced Recursion */
-// **for loop에서 하지 못한 것들을 할 수 있다. 얼마나 많은 level의 nesting이 필요할지 모를 때
+// ****for loop에서 하지 못한 것들을 할 수 있다. 얼마나 많은 level의 nesting이 필요할지 모를 때
 function getFriendNames(person) {
   const collectedNames = [];
 
@@ -2086,7 +2082,7 @@ function getFriendNames(person) {
 
   for (const friend of person.friends) {
     collectedNames.push(friend.name);
-    collectedNames.push(...getFriendNames(friend)); // **요로로콤
+    collectedNames.push(...getFriendNames(friend)); // ****요로로콤
   }
   return collectedNames;
 }
@@ -2102,7 +2098,7 @@ function getFriendNames(person) {
 function createCircle(radius){
   return {
       radius = radius,
-      draw : function(){
+      draw : function () {
       	console.log('draw')
       }
   };
@@ -2151,7 +2147,7 @@ new operator를 통해 object를 불러올 수 있음 */
 
 
 
-/* 341. Example: Generate Random Number Between Min/ Max */
+/* 341. Example: **Generate Random Number Between Min/ Max */
 function randomIntBetween(min, max) {
   return Math.floor(Math.random() * (max - min) + min) ;
 }
@@ -2161,7 +2157,7 @@ function randomIntBetween(min, max) {
 
 
 
-/* 343. Tagged Templates */
+/* 343. **Tagged Templates */
 `` //에 ${} 넣는거!
 function productDescription(strings, productName, productPrice) {
   let priceCategory = 'pretty cheap regarding its price';
@@ -2253,7 +2249,7 @@ const getPosition = opts => {
   });             // getCurrentPosition에서 얻는 데이터를 promise로 보내고! .then()을 사용하면 그 데이터를 얻는 것!
   return promise;};
 
-// chaining은 요로로콤
+// **chaining은 요로로콤
 function trackUserHandler() {
   let positionData;
   getPosition()
@@ -2528,5 +2524,12 @@ TS는 static Types을 추가한다. */
 // 이 서버가 앱을 실행할 것임 => node.js를 깔아야 됨!
 // sudo npm install -g serve
 // password 입력하면 serve를 깐다!
- // visual studio code에서 terminal에 serve를 치면 실행된다.
+// visual studio code에서 terminal에 serve를 치면 실행된다.
  
+
+
+
+
+
+
+// 복습후기(200827): promise()가 좀 헷갈리는 듯
