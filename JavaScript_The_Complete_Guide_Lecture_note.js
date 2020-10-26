@@ -491,7 +491,7 @@ const로 object을 설정해도 .push( )가 된다. 또 object의 property를 �
  }
 
  sayHi('hi~');
- // **name은 parameter, "BJ~"는 argument
+ // **name은 parameter, "hi~"는 argument
  
 
 
@@ -1809,7 +1809,7 @@ document.documentElement.clientWidth    // 가장 실용적인 높이, 너비를
 
 
 /* 294. Handling Scrolling */
-element.scrollIntoView({behavior: 'smooth'});        // **해당 element로 scroll해주는 개꿀 method. 애니메이션도 넣을 수 있음
+element.scrollIntoView({behavior: 'smooth'});        // ****해당 element로 scroll해주는 개꿀 method. 애니메이션도 넣을 수 있음
 
 
 
@@ -1841,7 +1841,7 @@ tooltipElement.append(tooltipBody);
 /* 297. Setting Timers & Intervals */
 setTimeout(func, 3000);            /* 첫 번째 argument: timer가 끝나면 실행될 함수
                                       두 번재 argument: 시간, ms단위*/
-setInterval(func, 2000);           /* **주기적으로 함수를 실행 */
+setInterval(func, 2000);           /* ****주기적으로 함수를 실행 */
 clearInterval();              /* Interval 멈추기 */
 clearTimeout();               /* 타이머 멈추기 */  
 
